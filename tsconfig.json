@@ -14,10 +14,10 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
 }

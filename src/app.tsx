@@ -1,14 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import './styles/main.css'
+/* eslint-disable import/no-extraneous-dependencies */
 
-const App = () => (
-  <h1 className="text-4xl">My React and TypeScript App!</h1>
-);
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Title from './components/Title';
+import './styles/main.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Title />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

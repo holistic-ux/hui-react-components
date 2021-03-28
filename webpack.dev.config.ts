@@ -1,39 +1,41 @@
-import * as path from "path";
-import * as webpack from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import * as path from 'path';
+import * as webpack from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 interface Configuration extends webpack.Configuration {
   devServer?: WebpackDevServerConfiguration;
 }
 
 const config: Configuration = {
-  mode: "development",
+  mode: 'development',
   output: {
-    path: path.resolve(__dirname, "build/"),
-    publicPath: "/",
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'build/'),
+    publicPath: '/',
+    filename: 'bundle.js',
   },
-  entry: "./src/app.tsx",
+  entry: './src/app.tsx',
   module: {
     rules: [
       {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
             ],
           },
         },
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.svg$/,
@@ -41,29 +43,44 @@ const config: Configuration = {
           {
             loader: 'svg-url-loader',
             options: {
-              limit: 10000,
+              limit: 9000,
             },
           },
         ],
       },
+      {
+        test: /\.jpg|jpge|png|gif|tiff|mp4|webm|woff|eot|ttf$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 9000,
+          },
+        },
+      },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "public/index.html",
+      template: 'public/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    }),
   ],
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "build"),
+    contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
     port: 3030,
     open: true,
-    hot: true
+    hot: true,
   },
 };
 

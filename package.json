@@ -1,20 +1,25 @@
 {
-  "name": "hux-library",
+  "name": "hux-components",
   "version": "0.1.0",
-  "description": "A ReactJS UI Library made with science, strategy and creativity for build an unique/effective UX/UI",
-  "scripts": {
-    "start": "webpack serve --config webpack.dev.config.ts",
-    "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
+  "description": "A UI Library made with science, strategy and creativity for build an unique/effective UX/UI",
   "author": {
     "name": "Nick Fuenmayor",
     "email": "in.nickf@gmail.com",
     "url": "https://github.com/InNickF"
   },
   "license": "GPL-3.0-only",
+  "main": "dist/main.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.config.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
+    "build": "webpack --config webpack.production.config.js"
+  },
   "dependencies": {
     "react": "^17.0.2"
   },
@@ -31,36 +36,57 @@
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@tailwindcss/postcss7-compat": "^2.0.4",
+    "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
+    "@types/mini-css-extract-plugin": "^1.3.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/terser-webpack-plugin": "^5.0.3",
     "@types/webpack": "^5.0.0",
     "@types/webpack-dev-server": "^3.11.3",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "autoprefixer": "^9.8.6",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.2.0",
+    "css-minimizer-webpack-plugin": "^1.3.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-webpack-plugin": "^2.5.3",
+    "fork-ts-checker-webpack-plugin": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "mini-css-extract-plugin": "^1.3.0",
     "postcss": "^7.0.35",
+    "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.2.0",
     "prettier": "^2.2.1",
     "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "style-loader": "^2.0.0",
     "svg-url-loader": "^7.1.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4",
+    "terser-webpack-plugin": "^5.1.1",
     "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
+    "url-loader": "^4.1.1",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }
