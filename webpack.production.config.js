@@ -4,6 +4,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
   mode: 'production',
@@ -21,6 +22,13 @@ const config = {
         extractComments: false,
       }),
       new CssMinimizerPlugin(),
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          output: {
+            comments: false,
+          },
+        },
+      }),
     ],
     splitChunks: {
       chunks: 'all',

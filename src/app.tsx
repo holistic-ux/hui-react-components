@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Title from './components/Title';
