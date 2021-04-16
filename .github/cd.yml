@@ -1,0 +1,59 @@
+name: CD to NPM and github pages
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  ci:
+    name: Build, lint, and test on Node ${{ matrix.node }} with ubuntu-latest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['10.x', '12.x', '14.x']
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps and build (with cache)
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test --ci --coverage --maxWorkers=2
+
+  cd:
+    name: Publish to npm
+    needs: ci
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['10.x', '12.x', '14.x']
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps and build (with cache)
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
