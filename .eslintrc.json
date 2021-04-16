@@ -32,6 +32,8 @@
     "jest": true
   },
   "rules": {
+    "react/no-unescaped-entities": "off",
+    "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",

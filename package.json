@@ -21,7 +21,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "lint": "eslint --ignore-path .gitignore src/**/*.ts{,x}",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "build": "webpack --config webpack.production.config.js"
