@@ -1,0 +1,26 @@
+/* Tailwind initialization
+ * https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* END Tailwind initialization */
+
+/* HUI Font declaration */
+@import url(../fonts/Montserrat.css);
+
+/* HUI Vars */
+@import url(./vars/index.css);
+
+/* Tailwind personalization */
+@layer base {
+  html,
+  body {
+    font-family: var(--primary-font), var(--secondary-fonts),
+      var(--default-fonts);
+  }
+}
+/* END Tailwind personalization */
+
+/* HUI CSS */
+@import url(./custon.css);

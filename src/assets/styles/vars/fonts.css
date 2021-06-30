@@ -1,0 +1,9 @@
+/* Colors base
+ * This css setup is for set typography families
+ * based on custom properties (a.k.a CSS Variables).
+*/
+:root {
+  --primary-font: 'Montserrat';
+  --secondary-fonts: Arial, Helvetica;
+  --default-fonts: sans-serif;
+}

@@ -75,22 +75,20 @@ const config = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 9000,
-            },
-          },
-        ],
+        type: 'asset/inline',
       },
       {
-        test: /\.jpg|jpge|png|gif|tiff|mp4|webm|woff|eot|ttf$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 9000,
-          },
+        test: /\.jpg|jpge|png|gif|tiff|mp4|webm$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.woff|eot|ttf$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]',
         },
       },
     ],

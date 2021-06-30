@@ -1,12 +1,3 @@
-/* Tailwind initialization
- * https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
-*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* END Tailwind initialization */
-
 /* Colors base
  * This css setup is for create a color theme customization
  * based on custom properties (a.k.a CSS Variables).
