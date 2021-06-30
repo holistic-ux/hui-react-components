@@ -1,7 +1,79 @@
-/* Tailwind initialization */
-
+/* Tailwind initialization
+ * https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* END Tailwind initialization */
+
+/* Colors base
+ * This css setup is for create a color theme customization
+ * based on custom properties (a.k.a CSS Variables)
+*/
+:root {
+  --primary: ;
+  --primary-light: ;
+  --primary-dark: ;
+  --primary-darker: ;
+  --primary-hover: ;
+
+  --secondary: ;
+  --secondary-light: ;
+  --secondary-dark: ;
+  --secondary-darker: ;
+  --secondary-hover: ;
+
+  --tertiary: ;
+  --tertiary-light: ;
+  --tertiary-dark: ;
+  --tertiary-darker: ;
+  --tertiary-hover: ;
+
+  --success: ;
+  --success-light: ;
+  --success-dark: ;
+  --success-darker: ;
+  --success-hover: ;
+
+  --alert: ;
+  --alert-light: ;
+  --alert-dark: ;
+  --alert-darker: ;
+  --alert-hover: ;
+
+  --error: ;
+  --error-light: ;
+  --error-dark: ;
+  --error-darker: ;
+  --error-hover: ;
+
+  --gray: ;
+  --gray-light: ;
+  --gray-dark: ;
+  --gray-darker: ;
+
+  --black: ;
+  --black-pure: ;
+  --white: ;
+  --white-pure: ;
+
+  --link-color: ;
+  --link-visited-color: ;
+  --link-color-hover: ;
+
+  --heading-color: ;
+  --heading-color-hover: var(--heading-color);
+
+  --text-color: ;
+  --text-color-secondary: ;
+
+  --disabled-text-color: ;
+  --disabled-bg-color: ;
+
+  --border-color: ;
+  --border-color-light: ;
+  --border-color-dark: ;
+}
+
+/* END Colors base */

@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   mode: 'production',
@@ -70,7 +71,7 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: ['css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.svg$/,
@@ -105,6 +106,7 @@ const config = {
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
 
