@@ -9,71 +9,96 @@
 
 /* Colors base
  * This css setup is for create a color theme customization
- * based on custom properties (a.k.a CSS Variables)
+ * based on custom properties (a.k.a CSS Variables).
 */
 :root {
-  --primary: ;
-  --primary-light: ;
-  --primary-dark: ;
-  --primary-darker: ;
-  --primary-hover: ;
+  --black: #333333;
+  --black-pure: #000000;
+  --black-opacity: #00000030;
+  --white: #f4f4f4;
+  --white-pure: #ffffff;
+  --white-opacity: #ffffff30;
 
-  --secondary: ;
-  --secondary-light: ;
-  --secondary-dark: ;
-  --secondary-darker: ;
-  --secondary-hover: ;
+  --gray-light: #f4f4f4;
+  --gray: #c3c3c3;
+  --gray-dark: #777777;
+  --gray-darker: #555555;
 
-  --tertiary: ;
-  --tertiary-light: ;
-  --tertiary-dark: ;
-  --tertiary-darker: ;
-  --tertiary-hover: ;
+  --primary: #0080ff;
+  --primary-light: #d9ecff;
+  --primary-dark: #005cb8;
+  --primary-darker: #002952;
+  --primary-opacity: #0080ff30;
+  --primary-hover: var(--primary-dark);
+  --text-above-primary: var(--white);
+  --text-above-primary-hover: var(--white);
 
-  --success: ;
-  --success-light: ;
-  --success-dark: ;
-  --success-darker: ;
-  --success-hover: ;
+  --secondary: #a855f7;
+  --secondary-light: #d9b0ff;
+  --secondary-dark: #8327b1;
+  --secondary-darker: #522978;
+  --primary-opacity: #a855f730;
+  --secondary-hover: var(--secondary-dark);
+  --text-above-secondary: var(--secondary-darker);
+  --text-above-secondary-hover: var(--white);
 
-  --alert: ;
-  --alert-light: ;
-  --alert-dark: ;
-  --alert-darker: ;
-  --alert-hover: ;
+  /* Tertiary
+   * Add the tertiary color is you need it.
+  */
+  --tertiary: #000000;
+  --tertiary-light: #000000;
+  --tertiary-dark: #000000;
+  --tertiary-darker: #000000;
+  --tertiary-hover: var(--tertiary-dark);
+  --text-above-tertiary: var(--white);
+  --text-above-tertiary-hover: var(--white);
+  /* END Tertiary */
 
-  --error: ;
-  --error-light: ;
-  --error-dark: ;
-  --error-darker: ;
-  --error-hover: ;
+  --success: #00eba8;
+  --success-light: #d9fcf2;
+  --success-dark: #008f66;
+  --success-darker: #003d2c;
+  --success-opacity: #00eba830;
+  --success-hover: var(--success-dark);
+  --text-above-success: var(--success-darker);
+  --text-above-success-hover: var(--white);
 
-  --gray: ;
-  --gray-light: ;
-  --gray-dark: ;
-  --gray-darker: ;
+  --alert: #ffcc33;
+  --alert-light: #fff8e0;
+  --alert-dark: #b88a00;
+  --alert-darker: #523d00;
+  --alert-opacity: #ffcc3330;
+  --alert-hover: var(--alert-dark);
+  --text-above-alert: var(--alert-darker);
+  --text-above-alert-hover: var(--white);
 
-  --black: ;
-  --black-pure: ;
-  --white: ;
-  --white-pure: ;
+  --error: #ff264a;
+  --error-light: #ffdee4;
+  --error-dark: #a3001b;
+  --error-darker: #52000e;
+  --error-opacity: #ff264a30;
+  --error-hover: var(--error-dark);
+  --text-above-error: var(--white);
+  --text-above-error-hover: var(--white);
 
-  --link-color: ;
-  --link-visited-color: ;
-  --link-color-hover: ;
+  --link-color: var(--primary);
+  --link-visited-color: var(--primary-darker);
+  --link-color-hover: var(--primary-dark);
 
-  --heading-color: ;
+  --heading-color: var(--black);
   --heading-color-hover: var(--heading-color);
 
-  --text-color: ;
-  --text-color-secondary: ;
+  --text-color: var(--black);
+  --text-color-secondary: var(--gray-dark);
 
-  --disabled-text-color: ;
-  --disabled-bg-color: ;
+  --disabled-bg-color: var(--gray);
+  --disabled-text-color: var(--gray-darker);
 
-  --border-color: ;
-  --border-color-light: ;
-  --border-color-dark: ;
+  --border-color: var(--primary);
+  --border-color-light: var(--gray);
+  --border-color-dark: var(--gray-darker);
+
+  --ghost-bg: #f9fcff;
 }
 
 /* END Colors base */
