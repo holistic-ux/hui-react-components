@@ -1,0 +1,48 @@
+/* Colors base
+ * This css setup is for set typography families
+ * based on custom properties (a.k.a CSS Variables).
+*/
+:root {
+  /* Families */
+  --primary-font: Montserrat;
+  --secondary-fonts: Arial, Helvetica;
+  --default-fonts: sans-serif;
+
+  /* Root element font size and line height */
+  --r-xs-font-size: 14px;
+  --r-xs-line-height: 16px;
+  --r-2xl-font-size: 16px;
+  --r-2xl-line-height: 18px;
+  --r-3xl-font-size: 18px;
+  --r-3xl-line-height: 20px;
+
+  /* General font size */
+  --xs-font-size: 0.75rem;
+  --sm-font-size: 0.875rem;
+  --base-font-size: 1rem;
+  --lg-font-size: 1.125rem;
+  --xl-font-size: 1.25rem;
+  --two-xl-font-size: 1.5rem;
+  --three-xl-font-size: 1.875rem;
+  --four-xl-font-size: 2.25rem;
+  --five-xl-font-size: 2.5rem;
+  --six-xl-font-size: 2.875rem;
+  --little-display-font-size: 3rem;
+  --display-font-size: 4rem;
+  --big-display-font-size: 5rem;
+
+  /* General line height */
+  --xs-line-height: 1rem;
+  --sm-line-height: 1.25rem;
+  --base-line-height: 1.5rem;
+  --lg-line-height: 1.75rem;
+  --xl-line-height: 1.75rem;
+  --two-xl-line-height: 2rem;
+  --three-xl-line-height: 2.25rem;
+  --four-xl-line-height: 2.5rem;
+  --five-xl-line-height: 1;
+  --six-xl-line-height: 1;
+  --little-display-line-height: 1;
+  --display-line-height: 1;
+  --big-display-line-height: 1;
+}

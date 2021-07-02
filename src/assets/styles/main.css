@@ -1,0 +1,56 @@
+/* Tailwind initialization
+ * https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* END Tailwind initialization */
+
+/* HUI Font declaration */
+@import url(../fonts/Montserrat.css);
+
+/* HUI Vars */
+@import url(./vars/index.css);
+
+/* Tailwind personalization */
+@layer base {
+  html,
+  body {
+    font-family: var(--primary-font), var(--secondary-fonts),
+      var(--default-fonts);
+  }
+  html {
+    @apply text-r-xs 2xl:text-r-2xl 3xl:text-r-3xl;
+  }
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-5xl;
+  }
+  h3 {
+    @apply text-4xl;
+  }
+  h4 {
+    @apply text-3xl;
+  }
+  h5 {
+    @apply text-2xl;
+  }
+  h6 {
+    @apply text-xl;
+  }
+  a {
+    @apply text-link hover:underline hover:text-link-hover;
+  }
+  a:visited {
+    @apply text-link-visited hover:underline hover:text-link-hover;
+  }
+  a:focus {
+    @apply border-2 border-link border-dashed px-1;
+  }
+}
+/* END Tailwind personalization */
+
+/* HUI CSS */
+@import url(./custon.css);

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -5,6 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   mode: 'production',
@@ -70,26 +72,24 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: ['css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 9000,
-            },
-          },
-        ],
+        type: 'asset/inline',
       },
       {
-        test: /\.jpg|jpge|png|gif|tiff|mp4|webm|woff|eot|ttf$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 9000,
-          },
+        test: /\.jpg|jpge|png|gif|tiff|mp4|webm$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.woff|eot|ttf$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]',
         },
       },
     ],
@@ -105,6 +105,7 @@ const config = {
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
 

@@ -39,22 +39,20 @@ const config: Configuration = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 9000,
-            },
-          },
-        ],
+        type: 'asset/inline',
       },
       {
-        test: /\.jpg|jpge|png|gif|tiff|mp4|webm|woff|eot|ttf$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 9000,
-          },
+        test: /\.jpg|jpge|png|gif|tiff|mp4|webm$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.woff|eot|ttf$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]',
         },
       },
     ],
@@ -78,9 +76,11 @@ const config: Configuration = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
+    host: '0.0.0.0',
     port: 3030,
     open: true,
     hot: true,
+    useLocalIp: true,
   },
 };
 
