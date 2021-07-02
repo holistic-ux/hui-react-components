@@ -17,7 +17,13 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "tests",
+    "tailwind.config.js",
+    "jest.config.js",
+    "postcss.config.js",
+    "webpack.dev.config.ts",
+    "webpack.production.config.js"
   ],
   "exclude": [
     "node_modules",

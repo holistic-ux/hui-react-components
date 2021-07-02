@@ -76,9 +76,11 @@ const config: Configuration = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
+    host: '0.0.0.0',
     port: 3030,
     open: true,
     hot: true,
+    useLocalIp: true,
   },
 };
 

@@ -14,11 +14,129 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      '3xl': '1920px',
     },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      black: {
+        DEFAULT: 'var(--black)',
+        pure: 'var(--black-pure)',
+        opacity: 'var(--black-opacity)',
+      },
+      white: {
+        DEFAULT: 'var(--white)',
+        pure: 'var(--white-pure)',
+        opacity: 'var(--white-opacity)',
+      },
+      gray: {
+        DEFAULT: 'var(--gray)',
+        light: 'var(--gray-light)',
+        dark: 'var(--gray-dark)',
+        darker: 'var(--gray-darker)',
+      },
+      primary: {
+        DEFAULT: 'var(--primary)',
+        light: 'var(--primary-light)',
+        dark: 'var(--primary-dark)',
+        darker: 'var(--primary-darker)',
+        opacity: 'var(--primary-opacity)',
+        hover: 'var(--primary-hover)',
+      },
+      secondary: {
+        DEFAULT: 'var(--secondary)',
+        light: 'var(--secondary-light)',
+        dark: 'var(--secondary-dark)',
+        darker: 'var(--secondary-darker)',
+        opacity: 'var(--secondary-opacity)',
+        hover: 'var(--secondary-hover)',
+      },
+      tertiary: {
+        DEFAULT: 'var(--tertiary)',
+        light: 'var(--tertiary-light)',
+        dark: 'var(--tertiary-dark)',
+        darker: 'var(--tertiary-darker)',
+        opacity: 'var(--tertiary-opacity)',
+        hover: 'var(--tertiary-hover)',
+      },
+      success: {
+        DEFAULT: 'var(--success)',
+        light: 'var(--success-light)',
+        dark: 'var(--success-dark)',
+        darker: 'var(--success-darker)',
+        opacity: 'var(--success-opacity)',
+        hover: 'var(--success-hover)',
+      },
+      alert: {
+        DEFAULT: 'var(--alert)',
+        light: 'var(--alert-light)',
+        dark: 'var(--alert-dark)',
+        darker: 'var(--alert-darker)',
+        opacity: 'var(--alert-opacity)',
+        hover: 'var(--alert-hover)',
+      },
+      error: {
+        DEFAULT: 'var(--error)',
+        light: 'var(--error-light)',
+        dark: 'var(--error-dark)',
+        darker: 'var(--error-darker)',
+        opacity: 'var(--error-opacity)',
+        hover: 'var(--error-hover)',
+      },
     },
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      ghost: 'var(--ghost-bg)',
+      disabled: 'var(--disabled-bg-color)',
+    }),
+    backgroundOpacity: (theme) => theme('opacity'),
+    textColor: (theme) => ({
+      ...theme('colors'),
+
+      /* General colors for some texts.
+       * Example: text-link-color (For links colors) or text-calm (For secondaries texts)
+       */
+      DEFAULT: 'var(--text-color)',
+      quiet: 'var(--text-secondary-color)',
+      link: 'var(--link-color)',
+      'link-visited': 'var(--link-visited-color)',
+      'link-hover': 'var(--link-hover-color)',
+      'heading-color': 'var(--heading-color)',
+      'heading-color-hover': 'var(--heading-hover-color)',
+      disabled: 'var(--disabled-text-color)',
+
+      // Colors text above primary EX: text-above-primary
+      'above-primary': 'var(--text-above-primary)',
+      'above-primary-hover': 'var(--text-above-primary-hover)',
+
+      // Colors text above secondary EX: text-above-secondary
+      'above-secondary': 'var(--text-above-secondary)',
+      'above-secondary-hover': 'var(--text-above-secondary-hover)',
+
+      // Colors text above tertiary EX: text-above-tertiary
+      'above-tertiary': 'var(--text-above-tertiary)',
+      'above-tertiary-hover': 'var(--text-above-tertiary-hover)',
+
+      // Colors text above success EX: text-above-success
+      'above-success': 'var(--text-above-success)',
+      'above-success-hover': 'var(--text-above-success-hover)',
+
+      // Colors text above alert EX: text-above-alert
+      'above-alert': 'var(--text-above-alert)',
+      'above-alert-hover': 'var(--text-above-alert-hover)',
+
+      // Colors text above error EX: text-above-error
+      'above-error': 'var(--text-above-error)',
+      'above-error-hover': 'var(--text-above-error-hover)',
+    }),
+    textOpacity: (theme) => theme('opacity'),
+    borderColor: (theme) => ({
+      ...theme('colors'),
+      DEFAULT: 'var(--border-color)',
+      link: 'var(--link-color)',
+      dark: 'var(--border-dark-color)',
+    }),
+    borderOpacity: (theme) => theme('opacity'),
     spacing: {
       px: '1px',
       0: '0px',
@@ -63,7 +181,6 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
     },
-    backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
@@ -79,7 +196,6 @@ module.exports = {
       'gradient-to-tl':
         'linear-gradient(to top left, var(--tw-gradient-stops))',
     },
-    backgroundOpacity: (theme) => theme('opacity'),
     backgroundPosition: {
       bottom: 'bottom',
       center: 'center',
@@ -96,11 +212,6 @@ module.exports = {
       cover: 'cover',
       contain: 'contain',
     },
-    borderColor: (theme) => ({
-      ...theme('colors'),
-      DEFAULT: theme('colors.gray.200', 'currentColor'),
-    }),
-    borderOpacity: (theme) => theme('opacity'),
     borderRadius: {
       none: '0px',
       sm: '0.125rem',
@@ -164,19 +275,60 @@ module.exports = {
     },
     fontFamily: false,
     fontSize: {
-      xs: ['0.75rem', { lineHeight: '1rem' }],
-      sm: ['0.875rem', { lineHeight: '1.25rem' }],
-      base: ['1rem', { lineHeight: '1.5rem' }],
-      lg: ['1.125rem', { lineHeight: '1.75rem' }],
-      xl: ['1.25rem', { lineHeight: '1.75rem' }],
-      '2xl': ['1.5rem', { lineHeight: '2rem' }],
-      '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-      '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-      '5xl': ['3rem', { lineHeight: '1' }],
-      '6xl': ['3.75rem', { lineHeight: '1' }],
-      '7xl': ['4.5rem', { lineHeight: '1' }],
-      '8xl': ['6rem', { lineHeight: '1' }],
-      '9xl': ['8rem', { lineHeight: '1' }],
+      // Root font size
+      'r-xs': [
+        'var(--r-xs-font-size)',
+        { lineHeight: 'var(--r-xs-line-height)' },
+      ],
+      'r-2xl': [
+        'var(--r-2xl-font-size)',
+        { lineHeight: 'var(--r-2xl-line-height)' },
+      ],
+      'r-3xl': [
+        'var(--r-3xl-font-size)',
+        { lineHeight: 'var(--r-3xl-line-height)' },
+      ],
+      // General font sizes
+      xs: ['var(--xs-font-size)', { lineHeight: 'var(--xs-line-height)' }],
+      sm: ['var(--sm-font-size)', { lineHeight: 'var(--sm-line-height)' }],
+      base: [
+        'var(--base-font-size)',
+        { lineHeight: 'var(--base-line-height)' },
+      ],
+      lg: ['var(--lg-font-size)', { lineHeight: 'var(--lg-line-height)' }],
+      xl: ['var(--xl-font-size)', { lineHeight: 'var(--xl-line-height)' }],
+      '2xl': [
+        'var(--two-xl-font-size)',
+        { lineHeight: 'var(--two-xl-line-height)' },
+      ],
+      '3xl': [
+        'var(--three-xl-font-size)',
+        { lineHeight: 'var(--three-xl-line-height)' },
+      ],
+      '4xl': [
+        'var(--four-xl-font-size)',
+        { lineHeight: 'var(--four-xl-line-height)' },
+      ],
+      '5xl': [
+        'var(--five-xl-font-size)',
+        { lineHeight: 'var(--five-xl-line-height)' },
+      ],
+      '6xl': [
+        'var(--six-xl-font-size)',
+        { lineHeight: 'var(--six-xl-line-height)' },
+      ],
+      'little-display': [
+        'var(--little-display-font-size)',
+        { lineHeight: 'var(--little-display-line-height)' },
+      ],
+      display: [
+        'var(--display-font-size)',
+        { lineHeight: 'var(--display-line-height)' },
+      ],
+      'big-display': [
+        'var(--big-display-font-size)',
+        { lineHeight: 'var(--big-display-line-height)' },
+      ],
     },
     fontWeight: {
       thin: '100',
@@ -494,11 +646,11 @@ module.exports = {
       black: ['2px dotted black', '2px'],
     },
     padding: (theme) => theme('spacing'),
-    placeholderColor: (theme) => theme('colors'),
+    placeholderColor: (theme) => theme('textColor'),
     placeholderOpacity: (theme) => theme('opacity'),
     ringColor: (theme) => ({
-      DEFAULT: theme('colors.blue.500', '#3b82f6'),
       ...theme('colors'),
+      DEFAULT: 'var(--default-ring-color)',
     }),
     ringOffsetColor: (theme) => theme('colors'),
     ringOffsetWidth: {
@@ -576,8 +728,6 @@ module.exports = {
       1: '1',
       2: '2',
     },
-    textColor: (theme) => theme('colors'),
-    textOpacity: (theme) => theme('opacity'),
     transformOrigin: {
       center: 'center',
       top: 'top',
