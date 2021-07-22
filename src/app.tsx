@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Title from './components/Title';
+import Button from './components/Button';
 import './assets/styles/main.css';
+import Shape from './components/utils/types/Shape';
+
+const App: React.FC = () => {
+  const shape: Shape[] = ['normal', 'squared', 'rounded'];
+  const [index, setIndex] = useState(0);
+
+  const changeProp = () => {
+    setIndex((prevCount) => {
+      return prevCount === shape.length - 1 ? 0 : prevCount + 1;
+    });
+  };
+
+  return (
+    <section>
+      <Button onClick={changeProp} shape={shape[index]}>
+        Clic me to do an action
+      </Button>
+      {shape[index]}
+    </section>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Title />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

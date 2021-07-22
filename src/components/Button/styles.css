@@ -1,0 +1,225 @@
+/* 
+* Base
+*/
+
+.hui-button {
+  transition-property: all;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+  @apply px-10 py-2 font-normal;
+}
+
+.hui-button:focus-visible {
+  outline: 2px dashed;
+  outline-offset: 2px;
+}
+
+.hui-button:active {
+  transform: scale(0.9);
+}
+
+.hui-button__container {
+  @apply flex justify-center;
+}
+
+/* 
+* END Base
+*/
+
+/* 
+* Kind
+*/
+
+/* Primary */
+.hui-button--primary {
+  @apply bg-primary text-above-primary;
+}
+.hui-button--primary:hover {
+  @apply bg-primary-hover text-above-primary-hover;
+}
+.hui-button--primary:focus-visible {
+  outline-color: var(--primary-dark);
+}
+
+/* Secondary */
+.hui-button--secondary {
+  @apply bg-secondary text-above-secondary;
+}
+.hui-button--secondary:hover {
+  @apply bg-secondary-hover text-above-secondary-hover;
+}
+.hui-button--secondary:focus {
+  outline-color: var(--secondary-dark);
+}
+
+/* Tertiary */
+.hui-button--tertiary {
+  @apply bg-tertiary text-above-tertiary;
+}
+.hui-button--tertiary:hover {
+  @apply bg-tertiary-hover text-above-tertiary-hover;
+}
+.hui-button--tertiary:focus {
+  outline-color: var(--tertiary-dark);
+}
+
+/* Success */
+.hui-button--success {
+  @apply bg-success text-above-success;
+}
+.hui-button--success:hover {
+  @apply bg-success-hover text-above-success-hover;
+}
+.hui-button--success:focus {
+  outline-color: var(--success-dark);
+}
+
+/* Warning */
+.hui-button--warning {
+  @apply bg-warning text-above-warning;
+}
+.hui-button--warning:hover {
+  @apply bg-warning-hover text-above-warning-hover;
+}
+.hui-button--warning:focus {
+  outline-color: var(--warning-dark);
+}
+
+/* Error */
+.hui-button--error {
+  @apply bg-error text-above-error;
+}
+.hui-button--error:hover {
+  @apply bg-error-hover text-above-error-hover;
+}
+.hui-button--error:focus {
+  outline-color: var(--error-dark);
+}
+
+/* Dark */
+.hui-button--dark {
+  @apply bg-dark text-above-dark;
+}
+.hui-button--dark:hover {
+  @apply bg-dark-hover text-above-dark-hover;
+}
+.hui-button--dark:focus {
+  outline-color: var(--dark-dark);
+}
+
+/* Light */
+.hui-button--light {
+  @apply bg-light text-above-light;
+}
+.hui-button--light:hover {
+  @apply bg-light-hover text-above-light-hover;
+}
+.hui-button--light:focus {
+  outline-color: var(--light-dark);
+}
+
+/* 
+* END Kind
+*/
+
+/* 
+* Disabled
+*/
+
+.hui-button--disabled {
+  cursor: not-allowed;
+  @apply bg-disabled text-disabled;
+}
+.hui-button--disabled:hover {
+  @apply bg-disabled text-disabled;
+}
+.hui-button--disabled:focus {
+  outline-color: var(--disabled-bg-color);
+}
+.hui-button--disabled:active {
+  transform: scale(1);
+}
+
+/* 
+* END Disabled
+*/
+
+/* 
+* Shape 
+*/
+
+.hui-button--normal-shape {
+  @apply rounded-full;
+}
+.hui-button--squared-shape {
+  @apply rounded-none;
+}
+.hui-button--rounded-shape {
+  @apply rounded-full;
+}
+
+/* 
+* END Shape
+*/
+
+/* 
+* Size 
+*/
+
+.hui-button--normal-size {
+  @apply text-base;
+}
+.hui-button--small-size {
+  @apply text-xs;
+}
+.hui-button--big-size {
+  @apply text-xl;
+}
+
+/* 
+* END Size
+*/
+
+/* 
+* Block
+*/
+
+.hui-button--block {
+  @apply w-full;
+}
+
+/* 
+* END Block
+*/
+
+/* 
+* Type
+*/
+
+.hui-button--undecorated-type {
+}
+.hui-button--decorated-type {
+}
+.hui-button--ghost-type {
+}
+.hui-button--outline-type {
+}
+.hui-button--dashed-type {
+}
+
+/* 
+* END Type
+*/
+
+/* 
+* Icon Position
+*/
+
+.hui-button__container--right-icon {
+}
+.hui-button__container--right-icon {
+}
+/* 
+* END Icon Position
+*/

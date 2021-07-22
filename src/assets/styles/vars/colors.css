@@ -25,13 +25,31 @@
   --text-above-primary: var(--white);
   --text-above-primary-hover: var(--white);
 
-  --secondary: #a855f7;
+  --dark: #002952;
+  --dark-light: #005cb8;
+  --dark-dark: #001d3a;
+  --dark-darker: #001224;
+  --dark-opacity: #00295230;
+  --dark-hover: var(--dark-dark);
+  --text-above-dark: var(--white);
+  --text-above-dark-hover: var(--white);
+
+  --light: #d9ecff;
+  --light-light: #e5f2ff;
+  --light-dark: #adc7e2;
+  --light-darker: #92abc7;
+  --light-opacity: #00295230;
+  --light-hover: var(--light-dark);
+  --text-above-light: var(--black);
+  --text-above-light-hover: var(--black);
+
+  --secondary: #9748e2;
   --secondary-light: #d9b0ff;
   --secondary-dark: #8327b1;
   --secondary-darker: #522978;
   --secondary-opacity: #a855f730;
   --secondary-hover: var(--secondary-dark);
-  --text-above-secondary: var(--secondary-darker);
+  --text-above-secondary: var(--white);
   --text-above-secondary-hover: var(--white);
 
   /* Tertiary
@@ -55,14 +73,14 @@
   --text-above-success: var(--success-darker);
   --text-above-success-hover: var(--white);
 
-  --alert: #ffcc33;
-  --alert-light: #fff8e0;
-  --alert-dark: #b88a00;
-  --alert-darker: #523d00;
-  --alert-opacity: #ffcc3330;
-  --alert-hover: var(--alert-dark);
-  --text-above-alert: var(--alert-darker);
-  --text-above-alert-hover: var(--white);
+  --warning: #ffcc33;
+  --warning-light: #fff8e0;
+  --warning-dark: #b88a00;
+  --warning-darker: #523d00;
+  --warning-opacity: #ffcc3330;
+  --warning-hover: var(--warning-dark);
+  --text-above-warning: var(--warning-darker);
+  --text-above-warning-hover: var(--white);
 
   --error: #ff264a;
   --error-light: #ffdee4;

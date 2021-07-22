@@ -14,6 +14,10 @@
 
 /* Tailwind personalization */
 @layer base {
+  *:focus {
+    outline: none;
+  }
+
   html,
   body {
     font-family: var(--primary-font), var(--secondary-fonts),
@@ -40,17 +44,19 @@
   h6 {
     @apply text-xl;
   }
-  a {
-    @apply text-link hover:underline hover:text-link-hover;
+
+  /* This css classes must be in a link component */
+  /* a {
+    @apply text-link hover:underline hover:text-link-hover cursor-pointer;
   }
   a:visited {
     @apply text-link-visited hover:underline hover:text-link-hover;
   }
   a:focus {
     @apply border-2 border-link border-dashed px-1;
-  }
+  } */
 }
 /* END Tailwind personalization */
 
 /* HUI CSS */
-@import url(./custon.css);
+@import url(./custom.css);
