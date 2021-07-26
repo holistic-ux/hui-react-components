@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   return (
     <section>
-      <Button onClick={changeProp} shape={shape[index]}>
+      <Button tabIndex={-1} onClick={changeProp} shape={shape[index]}>
         Clic me to do an action
       </Button>
       {shape[index]}

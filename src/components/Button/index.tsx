@@ -12,9 +12,8 @@ const Button: React.FC<ButtonProps> = ({
   iconPosition = 'left',
   renderElement = 'button',
   size = 'normal',
-  type = 'undecorated',
-  htmlType = 'button',
-  tabIndex = false,
+  typeStyle = 'undecorated',
+  type = 'button',
   className,
   children,
   icon,
@@ -29,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
       `${prefix}--${kind}`,
       `${prefix}--${shape}-shape`,
       `${prefix}--${size}-size`,
-      `${prefix}--${type}-type`,
+      `${prefix}--${typeStyle}-type`,
     ];
 
     block && classes.push(`${prefix}--block`);
@@ -41,13 +40,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <Btn
-      disabled={disabled}
-      type={htmlType}
-      tabIndex={tabIndex}
-      {...props}
-      className={getClasses()}
-    >
+    <Btn disabled={disabled} type={type} {...props} className={getClasses()}>
       <div role="grid" className={`${prefix}__container`}>
         {icon && <div role="banner">icon</div>}
         {!iconOnly && !loading && <div>{children}</div>}
