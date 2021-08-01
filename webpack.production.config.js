@@ -71,6 +71,11 @@ const config = {
         },
       },
       {
+        test: /\.(ts|js)x?$/i,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },

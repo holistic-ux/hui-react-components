@@ -1,16 +1,19 @@
 import { ComponentType, ButtonHTMLAttributes } from 'react';
-import KindInterface from '../_utils/interfaces/KindInterface';
-import ShapeInterface from '../_utils/interfaces/ShapeInterface';
-import DisabledInterface from '../_utils/interfaces/DisabledInterface';
-import SizeInterface from '../_utils/interfaces/SizeInterface';
-import { TypeStyle, IconPosition, Target } from './types';
+import { Kind, Shape, Size } from '../utils/types';
 
-export default interface ButtonProps
-  extends KindInterface,
-    ShapeInterface,
-    DisabledInterface,
-    SizeInterface,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+export type TypeStyle =
+  | 'decorated'
+  | 'undecorated'
+  | 'ghost'
+  | 'outline'
+  | 'dashed';
+export type IconPosition = 'right' | 'left';
+export type Target = '_blank' | '_self' | '_parent' | '_top' | 'framename';
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  kind?: Kind;
+  shape?: Shape;
+  size?: Size;
   renderElement?: 'button' | 'a' | ComponentType<any>;
   typeStyle?: TypeStyle;
   iconPosition?: IconPosition;

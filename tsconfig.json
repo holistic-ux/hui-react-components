@@ -1,30 +1,20 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "sourceMap": true,
-    "module": "commonjs",
-    "target": "es5",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "skipDefaultLibCheck": true,
+    "types": [],
   },
-  "include": [
-    "src"
+  "files": [
+    "src/index.tsx"
   ],
   "exclude": [
     "node_modules",
-    "./node_modules",
-    "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
+    "**/*.spec.ts",
     "**/__tests__/*/**"
   ],
-  "compileOnSave": false,
 }

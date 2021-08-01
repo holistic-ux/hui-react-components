@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Button from './components/Button';
 import './assets/styles/main.css';
-import Shape from './components/utils/types/Shape';
+import { Shape } from './components/utils/types';
 
 const App: React.FC = () => {
   const shape: Shape[] = ['normal', 'squared', 'rounded'];
