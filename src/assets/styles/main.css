@@ -45,6 +45,10 @@
     @apply text-xl;
   }
 
+  a {
+    @apply cursor-pointer;
+  }
+
   /* This css classes must be in a link component */
   /* a {
     @apply text-link hover:underline hover:text-link-hover cursor-pointer;

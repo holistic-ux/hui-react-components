@@ -17,6 +17,10 @@ const config = {
     libraryTarget: 'umd',
     library: 'hux',
   },
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom',
+  },
   optimization: {
     minimize: true,
     minimizer: [

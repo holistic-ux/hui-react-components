@@ -7,12 +7,7 @@
         "runtime": "automatic"
       }
     ],
-    [
-      "@babel/preset-typescript",
-      {
-        "allowDeclareFields": true
-      }
-    ]
+    "@babel/preset-typescript"
   ],
   "plugins": [
     [
