@@ -1,4 +1,4 @@
-import './assets/styles/main.css';
+import './assets/styles/index.css';
 
 // General Types
 export type { Kind, Shape, Size } from './components/utils/types';

@@ -1,10 +1,17 @@
 // General styles
-import '../src/assets/styles/main.css';
+import '../src/assets/styles/index.css';
 import { themes, ThemeVars } from '@storybook/theming';
+import { introduction, components } from '../src/stories/_utils/sections';
 
 const primary = '#0080ff';
 
 export const parameters = {
+  options: {
+    storySort: {
+      order: [introduction, components],
+    },
+  },
+  controls: { expanded: true },
   actions: { argTypesRegex: '^on[A-Z].*' },
   darkMode: {
     current: 'light',

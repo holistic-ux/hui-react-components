@@ -1,20 +1,18 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
+import { components } from '../../../stories/_utils/sections';
 import Button from '../index';
 import { ButtonProps } from '../props';
 import '../styles.css';
 
 export default {
-  title: '02 Components/Button/Component',
+  title: `${components}/Button/Button`,
   component: Button,
-  parameters: {
-    layout: 'padded',
-    fileName: 'HUI Button',
-  },
   argTypes: {
     renderElement: {
       options: ['button', 'a'],
     },
+    onClick: { action: 'onClick', table: { disable: true } },
   },
 } as Meta;
 
@@ -28,6 +26,7 @@ const Template: Story<ButtonProps> = ({
   loading,
   iconOnly,
   block,
+  onClick,
   ...args
 }) => (
   <Button
@@ -40,6 +39,7 @@ const Template: Story<ButtonProps> = ({
     loading={loading}
     iconOnly={iconOnly}
     block={block}
+    onClick={onClick}
     {...args}
   >
     Hello Word
@@ -50,7 +50,7 @@ export const Default = Template.bind({});
 Default.args = {
   kind: 'primary',
   typeStyle: 'undecorated',
-  shape: 'normal',
+  shape: 'default',
   renderElement: 'button',
   size: 'normal',
   iconPosition: 'right',

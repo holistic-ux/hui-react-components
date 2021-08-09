@@ -3,24 +3,38 @@
 */
 
 .hui-button {
-  transition-property: all;
+  --current-color: '';
+  --current-color-text: '';
+  --current-color-hover: '';
+  --current-color-text-hover: '';
+  --current-ghost-color: '';
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  position: relative;
+  transition-property: background-color, color, width, height;
   transition-duration: var(--transition-duration);
   transition-delay: var(--transition-delay);
   transition-timing-function: var(--transition-timing-function);
   @apply px-10 py-2 font-normal;
 }
 
+.hui-button:hover {
+  background-color: var(--current-color-hover);
+  color: var(--current-color-text-hover);
+}
+
 .hui-button:focus-visible {
+  transition-duration: 0;
   outline: 2px dashed;
   outline-offset: 2px;
 }
 
 .hui-button:active {
-  transform: scale(0.9);
+  z-index: 1;
 }
 
 .hui-button__container {
-  @apply flex justify-center;
+  @apply relative flex justify-center z-10;
 }
 
 /* 
@@ -33,10 +47,11 @@
 
 /* Primary */
 .hui-button--primary {
-  @apply bg-primary text-above-primary;
-}
-.hui-button--primary:hover {
-  @apply bg-primary-hover text-above-primary-hover;
+  --current-color: var(--primary);
+  --current-color-text: var(--text-above-primary);
+  --current-ghost-color: var(--primary-opacity);
+  --current-color-hover: var(--primary-hover);
+  --current-color-text-hover: var(--text-above-primary-hover);
 }
 .hui-button--primary:focus-visible {
   outline-color: var(--primary-dark);
@@ -44,10 +59,11 @@
 
 /* Secondary */
 .hui-button--secondary {
-  @apply bg-secondary text-above-secondary;
-}
-.hui-button--secondary:hover {
-  @apply bg-secondary-hover text-above-secondary-hover;
+  --current-color: var(--secondary);
+  --current-color-text: var(--text-above-secondary);
+  --current-ghost-color: var(--secondary-opacity);
+  --current-color-hover: var(--secondary-hover);
+  --current-color-text-hover: var(--text-above-secondary-hover);
 }
 .hui-button--secondary:focus {
   outline-color: var(--secondary-dark);
@@ -55,10 +71,11 @@
 
 /* Tertiary */
 .hui-button--tertiary {
-  @apply bg-tertiary text-above-tertiary;
-}
-.hui-button--tertiary:hover {
-  @apply bg-tertiary-hover text-above-tertiary-hover;
+  --current-color: var(--tertiary);
+  --current-color-text: var(--text-above-tertiary);
+  --current-ghost-color: var(--tertiary-opacity);
+  --current-color-hover: var(--tertiary-hover);
+  --current-color-text-hover: var(--text-above-tertiary-hover);
 }
 .hui-button--tertiary:focus {
   outline-color: var(--tertiary-dark);
@@ -66,10 +83,11 @@
 
 /* Success */
 .hui-button--success {
-  @apply bg-success text-above-success;
-}
-.hui-button--success:hover {
-  @apply bg-success-hover text-above-success-hover;
+  --current-color: var(--success);
+  --current-color-text: var(--text-above-success);
+  --current-ghost-color: var(--success-opacity);
+  --current-color-hover: var(--success-hover);
+  --current-color-text-hover: var(--text-above-success-hover);
 }
 .hui-button--success:focus {
   outline-color: var(--success-dark);
@@ -77,10 +95,11 @@
 
 /* Warning */
 .hui-button--warning {
-  @apply bg-warning text-above-warning;
-}
-.hui-button--warning:hover {
-  @apply bg-warning-hover text-above-warning-hover;
+  --current-color: var(--warning);
+  --current-color-text: var(--text-above-warning);
+  --current-ghost-color: var(--warning-opacity);
+  --current-color-hover: var(--warning-hover);
+  --current-color-text-hover: var(--text-above-warning-hover);
 }
 .hui-button--warning:focus {
   outline-color: var(--warning-dark);
@@ -88,10 +107,11 @@
 
 /* Error */
 .hui-button--error {
-  @apply bg-error text-above-error;
-}
-.hui-button--error:hover {
-  @apply bg-error-hover text-above-error-hover;
+  --current-color: var(--error);
+  --current-color-text: var(--text-above-error);
+  --current-ghost-color: var(--error-opacity);
+  --current-color-hover: var(--error-hover);
+  --current-color-text-hover: var(--text-above-error-hover);
 }
 .hui-button--error:focus {
   outline-color: var(--error-dark);
@@ -99,10 +119,11 @@
 
 /* Dark */
 .hui-button--dark {
-  @apply bg-dark text-above-dark;
-}
-.hui-button--dark:hover {
-  @apply bg-dark-hover text-above-dark-hover;
+  --current-color: var(--dark);
+  --current-color-text: var(--text-above-dark);
+  --current-ghost-color: var(--dark-opacity);
+  --current-color-hover: var(--dark-hover);
+  --current-color-text-hover: var(--text-above-dark-hover);
 }
 .hui-button--dark:focus {
   outline-color: var(--dark-dark);
@@ -110,10 +131,11 @@
 
 /* Light */
 .hui-button--light {
-  @apply bg-light text-above-light;
-}
-.hui-button--light:hover {
-  @apply bg-light-hover text-above-light-hover;
+  --current-color: var(--light);
+  --current-color-text: var(--text-above-light);
+  --current-ghost-color: var(--light-opacity);
+  --current-color-hover: var(--light-hover);
+  --current-color-text-hover: var(--text-above-light-hover);
 }
 .hui-button--light:focus {
   outline-color: var(--light-dark);
@@ -127,18 +149,15 @@
 * Disabled
 */
 
-.hui-button--disabled {
+.hui-button.hui-button--disabled {
   cursor: not-allowed;
   @apply bg-disabled text-disabled;
 }
-.hui-button--disabled:hover {
+.hui-button.hui-button--disabled:hover {
   @apply bg-disabled text-disabled;
 }
 .hui-button--disabled:focus {
   outline-color: var(--disabled-bg-color);
-}
-.hui-button--disabled:active {
-  transform: scale(1);
 }
 
 /* 
@@ -149,13 +168,16 @@
 * Shape 
 */
 
-.hui-button--normal-shape {
+.hui-button--default-shape,
+.hui-button--default-shape::before {
   @apply rounded-full;
 }
-.hui-button--squared-shape {
+.hui-button--squared-shape,
+.hui-button--squared-shape::before {
   @apply rounded-none;
 }
-.hui-button--rounded-shape {
+.hui-button--rounded-shape,
+.hui-button--rounded-shape::before {
   @apply rounded-full;
 }
 
@@ -197,15 +219,70 @@
 * Type
 */
 
-.hui-button--undecorated-type {
+.hui-button--undecorated-type::before,
+.hui-button--ghost-type::before {
+  background-color: var(--current-color);
+  content: '';
+  display: block;
+  transform: scaleX(0) scaleY(0);
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
-.hui-button--decorated-type {
+.hui-button--undecorated-type:active::before,
+.hui-button--ghost-type:active::before {
+  transform: scaleX(1.05) scaleY(1.2);
+  opacity: 0.3;
+}
+.hui-button--decorated-type::before {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--current-color);
+  transform: scaleX(1.075) scaleY(1.27);
+  position: absolute;
+  transition-property: border-color, transform;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.hui-button--decorated-type:hover::before {
+  transform: scaleX(1.05) scaleY(1.2);
+  border-color: var(--current-color-hover);
+}
+.hui-button--decorated-type:active::before {
+  transform: scaleX(1.075) scaleY(1.27);
+  transition-duration: 0s;
 }
 .hui-button--ghost-type {
+  background-color: var(--current-ghost-color);
+  color: var(--current-color-hover);
+}
+.hui-button--ghost-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
 }
 .hui-button--outline-type {
 }
 .hui-button--dashed-type {
+}
+
+.hui-button--disabled.hui-button--undecorated-type::before,
+.hui-button--disabled.hui-button--decorated-type::before,
+.hui-button--disabled.hui-button--ghost-type::before,
+.hui-button--disabled.hui-button--dashed-type::before,
+.hui-button--disabled.hui-button--outline-type::before {
+  display: none;
 }
 
 /* 

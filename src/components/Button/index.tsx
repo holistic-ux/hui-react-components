@@ -7,9 +7,9 @@ import './styles.css';
  * @see {@link https://todo.com/} for official documentation.
  * @param kind
  * Default: 'primary' |
- * Specify the kind button style color.
+ * Specify the button style color with a string.
  * @param shape
- * Default: 'normal' |
+ * Default: 'default' |
  * Specify the border radius, ex: 'rounded', 'normal' (some cases normal is the same that rounded) or 'squared'.
  * @param size
  * Default: 'normal' |
@@ -19,10 +19,10 @@ import './styles.css';
  * Specify design style button.
  * @param block
  * Default: false |
- * Make button uses all horizontal space available.
+ * Makes the button use all available horizontal space.
  * @param disabled
  * Default: false |
- * This prop sets disable html attr as true.
+ * This prop sets the disable html attr as true.
  * @param loading
  * Default: false |
  * Specify if the button has initiated an action and must wait for it (this prop automatically sets the disable html attribute as true).
@@ -31,7 +31,7 @@ import './styles.css';
  * This is the html element to render, it could be 'a', 'button' or any react component that you need, ex: react router link.
  * @param type
  * Default: 'button' |
- * This is the type html attr.
+ * This is the 'type' html attr.
  * @param className
  * Default: null |
  * You can use this props to send a string with you custom css classes.
@@ -64,7 +64,7 @@ import './styles.css';
  */
 const Button: React.FC<ButtonProps> = ({
   kind = 'primary',
-  shape = 'normal',
+  shape = 'default',
   size = 'normal',
   typeStyle = 'undecorated',
   block = false,

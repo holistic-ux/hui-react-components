@@ -1,0 +1,130 @@
+/* 
+* Base
+*/
+.hui-loader {
+  --current-color: '';
+  --current-color-behind: '';
+  animation: hui-loader-rotation infinite;
+  display: block;
+  border-color: var(--current-color-behind);
+  border-left-color: var(--current-color);
+  transform: rotate(45deg);
+  @apply rounded-full;
+}
+
+/* 
+* END Base
+*/
+
+/* 
+* Kind
+*/
+
+/* Primary */
+.hui-loader--primary {
+  --current-color: var(--primary);
+  --current-color-behind: var(--primary-opacity);
+}
+
+/* Secondary */
+.hui-loader--secondary {
+  --current-color: var(--secondary);
+  --current-color-behind: var(--secondary-opacity);
+}
+
+/* Tertiary */
+.hui-loader--tertiary {
+  --current-color: var(--tertiary);
+  --current-color-behind: var(--tertiary-opacity);
+}
+
+/* Success */
+.hui-loader--success {
+  --current-color: var(--success);
+  --current-color-behind: var(--success-opacity);
+}
+
+/* Warning */
+.hui-loader--warning {
+  --current-color: var(--warning);
+  --current-color-behind: var(--warning-opacity);
+}
+
+/* Error */
+.hui-loader--error {
+  --current-color: var(--error);
+  --current-color-behind: var(--error-opacity);
+}
+
+/* Dark */
+.hui-loader--dark {
+  --current-color: var(--dark);
+  --current-color-behind: var(--dark-opacity);
+}
+
+/* Light */
+.hui-loader--light {
+  --current-color: var(--light);
+  --current-color-behind: var(--light-opacity);
+}
+
+/* 
+* END Kind
+*/
+
+/* 
+* Size 
+*/
+
+.hui-loader--normal-size {
+  @apply w-8 h-8 border-4;
+}
+.hui-loader--small-size {
+  @apply w-5 h-5 border-4;
+}
+.hui-loader--big-size {
+  @apply w-12 h-12 border-4;
+}
+
+/* 
+* END Size
+*/
+
+/* 
+* Velocity 
+*/
+
+.hui-loader--default-velocity {
+  animation-duration: 1s;
+}
+.hui-loader--slow-velocity {
+  animation-duration: 1.5s;
+}
+.hui-loader--fast-velocity {
+  animation-duration: 0.4s;
+}
+
+/* 
+* END Velocity
+*/
+
+/* 
+* Timing function 
+*/
+
+.hui-loader--default-timing-function {
+  animation-timing-function: cubic-bezier(0.6, -0.35, 0.45, 1.45);
+}
+.hui-loader--lineal-timing-function {
+  animation-timing-function: linear;
+}
+.hui-loader--ease-timing-function {
+  animation-timing-function: ease;
+}
+.hui-loader--ease-in-out-timing-function {
+  animation-timing-function: ease-in-out;
+}
+
+/* 
+* END Timing function
+*/

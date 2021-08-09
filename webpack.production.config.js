@@ -12,7 +12,7 @@ const config = {
   mode: 'production',
   entry: './src/index.tsx',
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
     library: 'hux',
@@ -27,7 +27,16 @@ const config = {
       new TerserPlugin({
         extractComments: false,
       }),
-      new CssMinimizerPlugin(),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
       new UglifyJsPlugin({
         uglifyOptions: {
           output: {
@@ -114,7 +123,9 @@ const config = {
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
+    }),
   ],
 };
 

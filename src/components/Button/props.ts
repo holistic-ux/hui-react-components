@@ -14,12 +14,12 @@ export type Target = '_blank' | '_self' | '_parent' | '_top' | 'framename';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Default: 'primary' |
-   * Specify the button style color with a string
+   * Specify the button style color with a string.
    */
   kind?: Kind;
   /**
-   * Default: 'normal' |
-   * Specify the border radius, ex: 'rounded', 'normal' (some cases normal is the same that rounded) or 'squared'.
+   * Default: 'default' |
+   * Specify the border radius, ex: 'rounded', 'default' (some cases default is the same that rounded) or 'squared'.
    */
   shape?: Shape;
   /**
@@ -34,12 +34,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   typeStyle?: TypeStyle;
   /**
    *Default: false |
-   * Make button uses all horizontal space available.
+   * Makes the button use all available horizontal space.
    */
   block?: boolean;
   /**
    * Default: false |
-   * This prop sets disable html attr as true.
+   * This prop sets the disable html attr as true.
    */
   disabled?: boolean;
   /**
@@ -54,7 +54,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   renderElement?: 'button' | 'a' | ComponentType<any>;
   /**
    * Default: 'button' |
-   * This is the type html attr with a string.
+   * This is the 'type' html attr.
    */
   type?: 'submit' | 'reset' | 'button';
   /**

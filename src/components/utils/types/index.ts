@@ -8,5 +8,5 @@ export type Kind =
   | 'dark'
   | 'light';
 
-export type Shape = 'normal' | 'squared' | 'rounded';
+export type Shape = 'default' | 'squared' | 'rounded';
 export type Size = 'small' | 'normal' | 'big';
