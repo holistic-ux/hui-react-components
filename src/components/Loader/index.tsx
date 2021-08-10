@@ -2,14 +2,35 @@ import React from 'react';
 import { LoaderProps } from './props';
 import './styles.css';
 
-// TODO: Documentation
+/**
+ * Holistic UI Loader Component
+ * @see {@link https://todo.com/} for official documentation.
+ * @param kind
+ * Default: 'primary' |
+ * Specify the loader style color with a string.
+ * @param size
+ * Default: 'normal' |
+ * Specify the loader size with a string.
+ * @param velocity
+ * Default: 'default' |
+ * Specify the loader animation velocity with a string.
+ * @param animation
+ * Default: 'default' |
+ * Specify the css animation-timing-function with a string.
+ * @param className
+ * Default: null |
+ * You can use this props to send a string with you custom css classes.
+ * @returns
+ * A HUI loader react component
+ */
 const Loader: React.FC<LoaderProps> = ({
   kind = 'primary',
   role = 'alert',
-  size = 'default',
+  size = 'normal',
   velocity = 'default',
   animation = 'default',
   'aria-busy': ariaBusy = true,
+  className,
   ...props
 }) => {
   const prefix = 'hui-loader';
@@ -22,6 +43,7 @@ const Loader: React.FC<LoaderProps> = ({
       `${prefix}--${velocity}-velocity`,
       `${prefix}--${animation}-timing-function`,
     ];
+    className && classes.push(className);
     return classes.join(' ');
   };
 

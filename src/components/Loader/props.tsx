@@ -11,7 +11,7 @@ export interface LoaderProps extends HTMLAttributes<HTMLElement> {
    * Default: 'default' |
    * Specify the loader size with a string.
    */
-  size?: Size;
+  size?: Size | 'bigger';
   /**
    * Default: 'default' |
    * Specify the loader size with a string.
@@ -24,6 +24,6 @@ export interface LoaderProps extends HTMLAttributes<HTMLElement> {
   animation?: 'default' | 'lineal' | 'ease' | 'ease-in-out';
   /**
    * Default: 'default' |
-   * Specify the animation-timing-function with a string.
+   * Specify the css animation-timing-function with a string.
    */
 }

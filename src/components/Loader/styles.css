@@ -77,12 +77,17 @@
 */
 
 .hui-loader--normal-size {
-  @apply w-8 h-8 border-4;
+  @apply w-6 h-6 border-4;
 }
 .hui-loader--small-size {
-  @apply w-5 h-5 border-4;
+  @apply w-4 h-4 border-2;
 }
 .hui-loader--big-size {
+  width: 1.7rem;
+  height: 1.7rem;
+  @apply border-4;
+}
+.hui-loader--bigger-size {
   @apply w-12 h-12 border-4;
 }
 

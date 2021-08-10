@@ -1,6 +1,8 @@
 import React from 'react';
 import { ButtonProps } from './props';
+import Loader from '../Loader';
 import './styles.css';
+import { Kind } from '../..';
 
 /**
  * Holistic UI Button Component
@@ -92,11 +94,42 @@ const Button: React.FC<ButtonProps> = ({
     ];
 
     block && classes.push(`${prefix}--block`);
-    icon && classes.push(`${prefix}__container--${iconPosition}-icon`);
+    icon && classes.push(`${prefix}--${iconPosition}-icon`);
     disabled && classes.push(`${prefix}--disabled`);
+    loading && classes.push(`${prefix}--loading`);
     className && classes.push(className);
 
     return classes.join(' ');
+  };
+
+  const getLoaderKind = (buttonKind: Kind): Kind => {
+    const loaderKindByButtonKind = {
+      primary: 'light',
+      secondary: 'light',
+      tertiary: 'light',
+      success: 'dark',
+      warning: 'dark',
+      error: 'light',
+      dark: 'light',
+      light: 'dark',
+    };
+    if (typeStyle === 'decorated' || typeStyle === 'undecorated') {
+      return loaderKindByButtonKind[buttonKind] as Kind;
+    }
+    return buttonKind as Kind;
+  };
+
+  type Child = {
+    child: React.ReactNode;
+  };
+  const Children = ({ child }: Child) => {
+    return (
+      <>
+        {!iconOnly && (
+          <div className={`${prefix}__container__child`}>{child}</div>
+        )}
+      </>
+    );
   };
 
   return (
@@ -107,8 +140,15 @@ const Button: React.FC<ButtonProps> = ({
       className={getClasses()}
     >
       <div className={`${prefix}__container`}>
-        {icon && <div>{icon}</div>}
-        {!iconOnly && !loading && children}
+        {icon && <div className={`${prefix}__container__icon`}>{icon}</div>}
+        <Children child={children} />
+        {loading && (
+          <Loader
+            className={`${prefix}__loader-centered`}
+            size={size}
+            kind={getLoaderKind(kind)}
+          />
+        )}
       </div>
     </Btn>
   );

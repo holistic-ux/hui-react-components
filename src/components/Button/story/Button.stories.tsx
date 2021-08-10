@@ -27,6 +27,7 @@ const Template: Story<ButtonProps> = ({
   iconOnly,
   block,
   onClick,
+  icon,
   ...args
 }) => (
   <Button
@@ -40,6 +41,7 @@ const Template: Story<ButtonProps> = ({
     iconOnly={iconOnly}
     block={block}
     onClick={onClick}
+    icon={icon}
     {...args}
   >
     Hello Word
@@ -53,10 +55,23 @@ Default.args = {
   shape: 'default',
   renderElement: 'button',
   size: 'normal',
-  iconPosition: 'right',
+  iconPosition: 'left',
   loading: false,
   iconOnly: false,
   block: false,
+  icon: null,
+} as ButtonProps;
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  ...Default.args,
+  icon: 'Icon',
+} as ButtonProps;
+
+export const Loading = Template.bind({});
+Loading.args = {
+  ...Default.args,
+  loading: true,
 } as ButtonProps;
 
 export const Disabled = Template.bind({});

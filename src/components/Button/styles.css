@@ -38,6 +38,27 @@
 }
 
 /* 
+* Icon Position
+*/
+
+.hui-button--right-icon .hui-button__container {
+  flex-direction: row-reverse;
+}
+.hui-button--left-icon .hui-button__container {
+  flex-direction: row;
+}
+.hui-button--right-icon .hui-button__container__child {
+  @apply mr-2;
+}
+.hui-button--left-icon .hui-button__container__child {
+  @apply ml-2;
+}
+
+/* 
+* END Icon Position
+*/
+
+/* 
 * END Base
 */
 
@@ -273,8 +294,26 @@
   color: var(--current-color-text);
 }
 .hui-button--outline-type {
+  background-color: transparent;
+  color: var(--current-color);
+  border-color: var(--current-color);
+  @apply border-2;
 }
 .hui-button--dashed-type {
+  background-color: transparent;
+  color: var(--current-color);
+  border-color: var(--current-color);
+  @apply border-2 border-dashed;
+}
+.hui-button--outline-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  border-color: var(--current-color);
+}
+.hui-button--dashed-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  border-color: var(--current-color);
 }
 
 .hui-button--disabled.hui-button--undecorated-type::before,
@@ -290,13 +329,19 @@
 */
 
 /* 
-* Icon Position
+* Loading
 */
 
-.hui-button__container--right-icon {
+.hui-button__loader-centered {
+  position: absolute;
 }
-.hui-button__container--right-icon {
+.hui-button--loading .hui-button__container__child {
+  opacity: 0;
 }
+.hui-button--loading .hui-button__container__icon {
+  opacity: 0;
+}
+
 /* 
-* END Icon Position
+* END Loading
 */
