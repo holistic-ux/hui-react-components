@@ -14,22 +14,22 @@ export type Target = '_blank' | '_self' | '_parent' | '_top' | 'framename';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Default: 'primary' |
-   * Specify the button style color with a string.
+   * Specifies the button style color with a string.
    */
   kind?: Kind;
   /**
    * Default: 'default' |
-   * Specify the border radius, ex: 'rounded', 'default' (some cases default is the same that rounded) or 'squared'.
+   * Specifies the border radius, ex: 'rounded', 'default' (some cases default is the same that rounded) or 'squared'.
    */
   shape?: Shape;
   /**
    * Default: 'normal' |
-   * Specify the button size with a string.
+   * Specifies the button size with a string.
    */
   size?: Size;
   /**
    * Default: 'undecorated' |
-   * Specify design style button with a string.
+   * Specifies design style button with a string.
    */
   typeStyle?: TypeStyle;
   /**
@@ -44,7 +44,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   /**
    * Default: false |
-   * Specify if the button has initiated an action and must wait for it (this prop automatically sets the disable html attribute as true).
+   * Specifies if the button has initiated an action and must wait for it (this prop automatically sets the disable html attribute as true).
    */
   loading?: boolean;
   /**
@@ -69,27 +69,27 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
   /**
    * Default: false |
-   * Specify if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
+   * Specifies if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
    */
   iconOnly?: boolean;
   /**
    * Default: 'left' |
-   * Specify the icon position in the button, it could be 'right' or 'left'.
+   * Specifies the icon position in the button, it could be 'right' or 'left'.
    */
   iconPosition?: IconPosition;
   /**
    * Default: null |
-   * Specify target fot <a> renderElement.
+   * Specifies target fot <a> renderElement.
    */
   target?: Target;
   /**
    * Default: null |
-   * Specify href fot <a> renderElement.
+   * Specifies href fot <a> renderElement.
    */
   href?: string;
   /**
    * Default: null |
-   * Specify the to attr for link component ex: react router link or next link.
+   * Specifies the to attr for link component ex: react router link or next link.
    */
   to?: string;
 }

@@ -2,23 +2,23 @@ import React from 'react';
 import { ButtonProps } from './props';
 import Loader from '../Loader';
 import './styles.css';
-import { Kind } from '../..';
+import { Kind } from '../utils/types';
 
 /**
  * Holistic UI Button Component
  * @see {@link https://todo.com/} for official documentation.
  * @param kind
  * Default: 'primary' |
- * Specify the button style color with a string.
+ * Specifies the button style color with a string.
  * @param shape
  * Default: 'default' |
- * Specify the border radius, ex: 'rounded', 'normal' (some cases normal is the same that rounded) or 'squared'.
+ * Specifies the border radius, ex: 'rounded', 'normal' (some cases normal is the same that rounded) or 'squared'.
  * @param size
  * Default: 'normal' |
- * Specify the button size.
+ * Specifies the button size.
  * @param typeStyle
  * Default: 'undecorated' |
- * Specify design style button.
+ * Specifies design style button.
  * @param block
  * Default: false |
  * Makes the button use all available horizontal space.
@@ -27,7 +27,7 @@ import { Kind } from '../..';
  * This prop sets the disable html attr as true.
  * @param loading
  * Default: false |
- * Specify if the button has initiated an action and must wait for it (this prop automatically sets the disable html attribute as true).
+ * Specifies if the button has initiated an action and must wait for it (this prop automatically sets the disable html attribute as true).
  * @param renderElement
  * Default: 'button' |
  * This is the html element to render, it could be 'a', 'button' or any react component that you need, ex: react router link.
@@ -36,7 +36,7 @@ import { Kind } from '../..';
  * This is the 'type' html attr.
  * @param className
  * Default: null |
- * You can use this props to send a string with you custom css classes.
+ * You can use this prop to send a string with your custom css classes.
  * @param children |
  * The classic React children prop.
  * @param icon
@@ -44,19 +44,19 @@ import { Kind } from '../..';
  * Send the HUI icon component without any prop, this button will manage it.
  * @param iconOnly
  * Default: false |
- * Specify if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
+ * Specifies if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
  * @param iconPosition
  * Default: 'left' |
- * Specify the icon position in the button, it could be 'right' or 'left'.
+ * Specifies the icon position in the button, it could be 'right' or 'left'.
  * @param target
  * Default: null |
- * Specify target fot <a> renderElement.
+ * Specifies target fot <a> renderElement.
  * @param href
  * Default: null |
- * Specify href fot <a> renderElement.
+ * Specifies href fot <a> renderElement.
  * @param to
  * Default: null |
- * Specify the to attr for link component ex: react router link or next link.
+ * Specifies the to attr for link component ex: react router link or next link.
  * @interface ButtonProps
  * This is the custom interface created for this component logic.
  * @interface ButtonHTMLAttributes

@@ -7,10 +7,19 @@
     "declarationDir": "dist",
     "outDir": "dist",
     "skipDefaultLibCheck": true,
-    "types": [],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2017"
+    ],
+    "types": []
   },
+  "typeRoots": [
+    "./src/@types"
+  ],
   "files": [
-    "src/index.tsx"
+    "src/index.tsx",
+    "src/@types/index.d.ts"
   ],
   "exclude": [
     "node_modules",

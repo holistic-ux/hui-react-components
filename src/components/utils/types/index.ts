@@ -10,3 +10,6 @@ export type Kind =
 
 export type Shape = 'default' | 'squared' | 'rounded';
 export type Size = 'small' | 'normal' | 'big';
+export type ReactDangerousHTML = {
+  __html: string;
+};
