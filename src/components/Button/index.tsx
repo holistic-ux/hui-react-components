@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonProps } from './props';
 import Loader from '../Loader';
+import Icon from '../Icon';
 import './styles.css';
 import { Kind } from '../utils/types';
 
@@ -42,7 +43,7 @@ import { Kind } from '../utils/types';
  * @param icon
  * Default: null |
  * Send the HUI icon component without any prop, this button will manage it.
- * @param iconOnly
+ * @param onlyIcon
  * Default: false |
  * Specifies if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
  * @param iconPosition
@@ -77,7 +78,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   children,
   icon,
-  iconOnly = false,
+  onlyIcon = false,
   iconPosition = 'left',
   ...props
 }) => {
@@ -95,6 +96,7 @@ const Button: React.FC<ButtonProps> = ({
 
     block && classes.push(`${prefix}--block`);
     icon && classes.push(`${prefix}--${iconPosition}-icon`);
+    onlyIcon && classes.push(`${prefix}--only-icon`);
     disabled && classes.push(`${prefix}--disabled`);
     loading && classes.push(`${prefix}--loading`);
     className && classes.push(className);
@@ -116,7 +118,7 @@ const Button: React.FC<ButtonProps> = ({
     if (typeStyle === 'decorated' || typeStyle === 'undecorated') {
       return loaderKindByButtonKind[buttonKind] as Kind;
     }
-    return buttonKind as Kind;
+    return buttonKind;
   };
 
   type Child = {
@@ -125,8 +127,34 @@ const Button: React.FC<ButtonProps> = ({
   const Children = ({ child }: Child) => {
     return (
       <>
-        {!iconOnly && (
+        {!onlyIcon && (
           <div className={`${prefix}__container__child`}>{child}</div>
+        )}
+      </>
+    );
+  };
+
+  const ButtonIcon = (): JSX.Element => {
+    return (
+      <>
+        {icon && (
+          <div className={`${prefix}__container__icon`}>
+            <Icon name={icon} size={size} kind="no-kind" />
+          </div>
+        )}
+      </>
+    );
+  };
+
+  const ButtonLoader = (): JSX.Element => {
+    return (
+      <>
+        {loading && (
+          <Loader
+            className={`${prefix}__loader-centered`}
+            size={size}
+            kind={getLoaderKind(kind)}
+          />
         )}
       </>
     );
@@ -140,15 +168,9 @@ const Button: React.FC<ButtonProps> = ({
       className={getClasses()}
     >
       <div className={`${prefix}__container`}>
-        {icon && <div className={`${prefix}__container__icon`}>{icon}</div>}
+        <ButtonIcon />
         <Children child={children} />
-        {loading && (
-          <Loader
-            className={`${prefix}__loader-centered`}
-            size={size}
-            kind={getLoaderKind(kind)}
-          />
-        )}
+        <ButtonLoader />
       </div>
     </Btn>
   );

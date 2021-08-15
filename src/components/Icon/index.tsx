@@ -13,7 +13,7 @@ import './styles.css';
  * Specifies the icon.
  * @param kind
  * Default: 'primary' |
- * Specifies the icon style color with a string.
+ * Specifies the icon style color with a string (Use no-kind if you want to use currentColor based on your color css context).
  * @param size
  *  Default: 'normal' |
  * Specifies the icon size between small, normal and big.

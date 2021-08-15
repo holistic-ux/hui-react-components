@@ -34,18 +34,56 @@
 }
 
 .hui-button__container {
-  @apply relative flex justify-center z-10;
+  @apply relative flex justify-center z-10 items-center;
 }
+.hui-button--normal-size .hui-button__container__child {
+  position: relative;
+  top: 1px;
+}
+
+/* 
+* END Base
+*/
+
+/* 
+* Only Icon
+*/
+
+.hui-button--only-icon {
+  @apply px-2;
+}
+
+.hui-button--only-icon.hui-button--outline-type,
+.hui-button--only-icon.hui-button--dashed-type {
+  --padding-x: calc(0.5rem - 2px);
+  --padding-y: calc(0.5rem - 2px);
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+}
+
+/* 
+* END Only Icon
+*/
 
 /* 
 * Icon Position
 */
 
 .hui-button--right-icon .hui-button__container {
-  flex-direction: row-reverse;
+  @apply flex-row-reverse -right-1;
 }
 .hui-button--left-icon .hui-button__container {
-  flex-direction: row;
+  @apply flex-row -left-1;
+}
+.hui-button--loading.hui-button--right-icon .hui-button__container,
+.hui-button--only-icon.hui-button--right-icon .hui-button__container {
+  @apply right-0;
+}
+.hui-button--loading.hui-button--left-icon .hui-button__container,
+.hui-button--only-icon.hui-button--left-icon .hui-button__container {
+  @apply left-0;
 }
 .hui-button--right-icon .hui-button__container__child {
   @apply mr-2;
@@ -53,13 +91,8 @@
 .hui-button--left-icon .hui-button__container__child {
   @apply ml-2;
 }
-
 /* 
 * END Icon Position
-*/
-
-/* 
-* END Base
 */
 
 /* 
@@ -241,7 +274,9 @@
 */
 
 .hui-button--undecorated-type::before,
-.hui-button--ghost-type::before {
+.hui-button--ghost-type::before,
+.hui-button--outline-type::before,
+.hui-button--dashed-type::before {
   background-color: var(--current-color);
   content: '';
   display: block;
@@ -255,17 +290,37 @@
   z-index: 1;
 }
 .hui-button--undecorated-type:active::before,
-.hui-button--ghost-type:active::before {
-  transform: scaleX(1.05) scaleY(1.2);
+.hui-button--ghost-type:active::before,
+.hui-button--outline-type:active::before,
+.hui-button--dashed-type:active::before {
   opacity: 0.3;
 }
-.hui-button--decorated-type::before {
+.hui-button--undecorated-type:active::before,
+.hui-button--ghost-type:active::before {
+  transform: scaleX(1.05) scaleY(1.2);
+}
+.hui-button--outline-type:active::before,
+.hui-button--dashed-type:active::before {
+  transform: scaleX(1.07) scaleY(1.32);
+}
+
+.hui-button--only-icon.hui-button--undecorated-type:active::before,
+.hui-button--only-icon.hui-button--ghost-type:active::before {
+  transform: scale(1.2);
+}
+.hui-button--only-icon.hui-button--outline-type:active::before,
+.hui-button--only-icon.hui-button--dashed-type:active::before {
+  transform: scale(1.32);
+}
+
+.hui-button--decorated-type::before,
+.hui-button--ghost-decorated-type::before {
   content: '';
   display: block;
   border-style: solid;
   border-width: 1px;
   border-color: var(--current-color);
-  transform: scaleX(1.075) scaleY(1.27);
+  transform: scaleX(1.065) scaleY(1.27);
   position: absolute;
   transition-property: border-color, transform;
   transition-duration: var(--transition-duration);
@@ -277,21 +332,41 @@
   right: 0;
   z-index: 1;
 }
-.hui-button--decorated-type:hover::before {
-  transform: scaleX(1.05) scaleY(1.2);
+.hui-button--only-icon.hui-button--decorated-type::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type::before {
+  transform: scale(1.27);
+}
+.hui-button--decorated-type:hover::before,
+.hui-button--ghost-decorated-type:hover::before {
+  transform: scaleX(1.045) scaleY(1.2);
   border-color: var(--current-color-hover);
 }
-.hui-button--decorated-type:active::before {
-  transform: scaleX(1.075) scaleY(1.27);
+.hui-button--only-icon.hui-button--decorated-type:hover::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type:hover::before {
+  transform: scale(1.2);
+}
+.hui-button--decorated-type:active::before,
+.hui-button--ghost-decorated-type:active::before {
+  transform: scaleX(1.065) scaleY(1.27);
   transition-duration: 0s;
 }
-.hui-button--ghost-type {
+.hui-button--only-icon.hui-button--decorated-type:active::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type:active::before {
+  transform: scale(1.27);
+}
+.hui-button--ghost-type,
+.hui-button--ghost-decorated-type {
   background-color: var(--current-ghost-color);
   color: var(--current-color-hover);
 }
-.hui-button--ghost-type:hover {
+.hui-button--ghost-type:hover,
+.hui-button--ghost-decorated-type:hover {
   background-color: var(--current-color);
   color: var(--current-color-text);
+}
+.hui-button--loading.hui-button--ghost-type:hover,
+.hui-button--loading.hui-button--ghost-decorated-type:hover {
+  background-color: var(--current-ghost-color);
 }
 .hui-button--outline-type {
   background-color: transparent;
@@ -303,7 +378,23 @@
   background-color: transparent;
   color: var(--current-color);
   border-color: var(--current-color);
+
   @apply border-2 border-dashed;
+}
+
+.hui-button--loading.hui-button--outline-type:hover,
+.hui-button--loading.hui-button--dashed-type:hover {
+  background-color: transparent;
+}
+
+:not(.hui-button--only-icon).hui-button--outline-type,
+:not(.hui-button--only-icon).hui-button--dashed-type {
+  --padding-x: calc(2.5rem - 2px);
+  --padding-y: calc(0.5rem - 2px);
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
 }
 .hui-button--outline-type:hover {
   background-color: var(--current-color);
@@ -319,9 +410,14 @@
 .hui-button--disabled.hui-button--undecorated-type::before,
 .hui-button--disabled.hui-button--decorated-type::before,
 .hui-button--disabled.hui-button--ghost-type::before,
+.hui-button--disabled.hui-button--ghost-decorated-type::before,
 .hui-button--disabled.hui-button--dashed-type::before,
 .hui-button--disabled.hui-button--outline-type::before {
   display: none;
+}
+.hui-button--disabled.hui-button--dashed-type,
+.hui-button--disabled.hui-button--outline-type {
+  @apply border-disabled;
 }
 
 /* 
@@ -335,10 +431,9 @@
 .hui-button__loader-centered {
   position: absolute;
 }
-.hui-button--loading .hui-button__container__child {
-  opacity: 0;
-}
+.hui-button--loading .hui-button__container__child,
 .hui-button--loading .hui-button__container__icon {
+  transition: none;
   opacity: 0;
 }
 

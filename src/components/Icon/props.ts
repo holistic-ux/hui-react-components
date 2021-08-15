@@ -239,9 +239,9 @@ export interface IconProps extends HTMLAttributes<HTMLOrSVGElement> {
     | 'zoom-out';
   /**
    * Default: 'primary' |
-   * Specifies the icon style color with a string.
+   * Specifies the icon style color with a string (Use no-kind if you want to use currentColor based on your color css context).
    */
-  kind?: Kind;
+  kind?: Kind | 'no-kind';
   /**
    * Default: 'normal' |
    * Specifies the icon size between small, normal and big.

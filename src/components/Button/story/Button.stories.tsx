@@ -24,7 +24,7 @@ const Template: Story<ButtonProps> = ({
   size,
   iconPosition,
   loading,
-  iconOnly,
+  onlyIcon,
   block,
   onClick,
   icon,
@@ -38,7 +38,7 @@ const Template: Story<ButtonProps> = ({
     size={size}
     iconPosition={iconPosition}
     loading={loading}
-    iconOnly={iconOnly}
+    onlyIcon={onlyIcon}
     block={block}
     onClick={onClick}
     icon={icon}
@@ -46,6 +46,80 @@ const Template: Story<ButtonProps> = ({
   >
     Hello Word
   </Button>
+);
+
+const MultipleTemplate: Story<ButtonProps> = ({
+  kind,
+  typeStyle,
+  shape,
+  renderElement,
+  size,
+  iconPosition,
+  loading,
+  onlyIcon,
+  block,
+  onClick,
+  icon,
+  ...args
+}) => (
+  <>
+    <Button
+      style={{
+        marginRight: '10px',
+      }}
+      kind={kind}
+      typeStyle={typeStyle}
+      shape={shape}
+      renderElement={renderElement}
+      size={size}
+      iconPosition={iconPosition}
+      loading={loading}
+      onlyIcon={onlyIcon}
+      block={block}
+      onClick={onClick}
+      icon={icon}
+      {...args}
+    >
+      Hello Word
+    </Button>
+    <Button
+      style={{
+        marginRight: '10px',
+      }}
+      kind={kind}
+      typeStyle="outline"
+      shape={shape}
+      renderElement={renderElement}
+      size={size}
+      iconPosition={iconPosition}
+      loading={loading}
+      block={block}
+      onClick={onClick}
+      icon={icon}
+      {...args}
+    >
+      Hello Word
+    </Button>
+    <Button
+      style={{
+        marginRight: '10px',
+      }}
+      kind={kind}
+      typeStyle="dashed"
+      shape={shape}
+      renderElement={renderElement}
+      size={size}
+      iconPosition={iconPosition}
+      loading={loading}
+      onlyIcon={onlyIcon}
+      block={block}
+      onClick={onClick}
+      icon={icon}
+      {...args}
+    >
+      Hello Word
+    </Button>
+  </>
 );
 
 export const Default = Template.bind({});
@@ -57,7 +131,7 @@ Default.args = {
   size: 'normal',
   iconPosition: 'left',
   loading: false,
-  iconOnly: false,
+  onlyIcon: false,
   block: false,
   icon: null,
 } as ButtonProps;
@@ -65,7 +139,7 @@ Default.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Default.args,
-  icon: 'Icon',
+  icon: 'plus',
 } as ButtonProps;
 
 export const Loading = Template.bind({});
@@ -78,4 +152,9 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
+} as ButtonProps;
+
+export const Multiple = MultipleTemplate.bind({});
+Multiple.args = {
+  ...Default.args,
 } as ButtonProps;

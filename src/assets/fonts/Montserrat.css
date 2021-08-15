@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 300;
   src: url(./Montserrat-Light.ttf);
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: lighter;
+  font-weight: 300;
   src: url(./Montserrat-LightItalic.ttf);
 }
 @font-face {

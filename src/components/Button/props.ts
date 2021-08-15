@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentType, ButtonHTMLAttributes, ReactNode } from 'react';
+import { ComponentType, ButtonHTMLAttributes } from 'react';
 import { Kind, Shape, Size } from '../utils/types';
+import { IconProps } from '../Icon/props';
 
 export type TypeStyle =
   | 'decorated'
   | 'undecorated'
   | 'ghost'
+  | 'ghost-decorated'
   | 'outline'
   | 'dashed';
 export type IconPosition = 'right' | 'left';
@@ -64,14 +66,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   /**
    * Default: null |
-   * Send the HUI icon component without any prop, this button will manage it.
+   * Send the HUI icon name, this button will manage it.
    */
-  icon?: ReactNode;
+  icon?: IconProps['name'];
   /**
    * Default: false |
    * Specifies if the button will only show the icon and not the children react prop, the icon prop must be already set for this action.
    */
-  iconOnly?: boolean;
+  onlyIcon?: boolean;
   /**
    * Default: 'left' |
    * Specifies the icon position in the button, it could be 'right' or 'left'.

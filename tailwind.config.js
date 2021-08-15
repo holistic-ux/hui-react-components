@@ -159,6 +159,7 @@ module.exports = {
       DEFAULT: 'var(--border-color)',
       link: 'var(--link-color)',
       dark: 'var(--border-dark-color)',
+      disabled: 'var(--disabled-bg-color)',
     }),
     borderOpacity: (theme) => theme('opacity'),
     spacing: {
