@@ -1,6 +1,6 @@
 // General styles
 import '../src/assets/styles/index.css';
-import { themes, ThemeVars } from '@storybook/theming';
+import { themes } from '@storybook/theming';
 import { introduction, components } from '../src/stories/_utils/sections';
 
 const primary = '#0080ff';
