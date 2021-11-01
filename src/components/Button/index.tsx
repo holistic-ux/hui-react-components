@@ -49,6 +49,9 @@ import { Kind } from '../utils/types';
  * @param iconPosition
  * Default: 'left' |
  * Specifies the icon position in the button, it could be 'right' or 'left'.
+ *  * @param iconTitle
+ * Default: 'Icon' |
+ * Specifies the icon title in the button.
  * @param target
  * Default: null |
  * Specifies target fot <a> renderElement.
@@ -80,6 +83,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   onlyIcon = false,
   iconPosition = 'left',
+  iconTitle = 'Icon',
   ...props
 }) => {
   const Btn = renderElement;
@@ -139,7 +143,7 @@ const Button: React.FC<ButtonProps> = ({
       <>
         {icon && (
           <div className={`${prefix}__container__icon`}>
-            <Icon name={icon} size={size} kind="no-kind" />
+            <Icon name={icon} size={size} title={iconTitle} kind="no-kind" />
           </div>
         )}
       </>

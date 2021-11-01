@@ -80,6 +80,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   iconPosition?: IconPosition;
   /**
+   * Default: 'Icon' |
+   * Specifies the icon title in the button.
+   */
+  iconTitle?: string;
+  /**
    * Default: null |
    * Specifies target fot <a> renderElement.
    */

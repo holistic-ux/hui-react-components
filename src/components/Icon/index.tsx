@@ -40,8 +40,11 @@ const Icon: React.FC<IconProps> = ({
   hoverTransition = false,
   specificSize,
   className,
+  title = 'Icon',
+  ...props
 }) => {
   const svg = useImportIcon(name, solid);
+
   const prefix = 'hui-icon';
   const getClasses = (): string => {
     const classes: string[] = [`${prefix}`, `${prefix}--${kind}`];
@@ -59,6 +62,8 @@ const Icon: React.FC<IconProps> = ({
       className={getClasses()}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={svg}
+      title={title}
+      {...props}
     />
   );
 };

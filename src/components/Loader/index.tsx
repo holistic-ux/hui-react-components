@@ -31,6 +31,7 @@ const Loader: React.FC<LoaderProps> = ({
   animation = 'default',
   'aria-busy': ariaBusy = true,
   className,
+  title = 'Loader',
   ...props
 }) => {
   const prefix = 'hui-loader';
@@ -52,6 +53,7 @@ const Loader: React.FC<LoaderProps> = ({
       className={getClasses()}
       role={role}
       aria-busy={ariaBusy}
+      title={title}
       {...props}
     />
   );
