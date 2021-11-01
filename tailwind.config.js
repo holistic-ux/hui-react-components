@@ -43,6 +43,22 @@ module.exports = {
         opacity: 'var(--primary-opacity)',
         hover: 'var(--primary-hover)',
       },
+      dark: {
+        DEFAULT: 'var(--dark)',
+        light: 'var(--dark-light)',
+        dark: 'var(--dark-dark)',
+        darker: 'var(--dark-darker)',
+        opacity: 'var(--dark-opacity)',
+        hover: 'var(--dark-hover)',
+      },
+      light: {
+        DEFAULT: 'var(--light)',
+        light: 'var(--light-light)',
+        dark: 'var(--light-dark)',
+        darker: 'var(--light-darker)',
+        opacity: 'var(--light-opacity)',
+        hover: 'var(--light-hover)',
+      },
       secondary: {
         DEFAULT: 'var(--secondary)',
         light: 'var(--secondary-light)',
@@ -67,13 +83,13 @@ module.exports = {
         opacity: 'var(--success-opacity)',
         hover: 'var(--success-hover)',
       },
-      alert: {
-        DEFAULT: 'var(--alert)',
-        light: 'var(--alert-light)',
-        dark: 'var(--alert-dark)',
-        darker: 'var(--alert-darker)',
-        opacity: 'var(--alert-opacity)',
-        hover: 'var(--alert-hover)',
+      warning: {
+        DEFAULT: 'var(--warning)',
+        light: 'var(--warning-light)',
+        dark: 'var(--warning-dark)',
+        darker: 'var(--warning-darker)',
+        opacity: 'var(--warning-opacity)',
+        hover: 'var(--warning-hover)',
       },
       error: {
         DEFAULT: 'var(--error)',
@@ -109,6 +125,14 @@ module.exports = {
       'above-primary': 'var(--text-above-primary)',
       'above-primary-hover': 'var(--text-above-primary-hover)',
 
+      // Colors text above dark EX: text-above-dark
+      'above-dark': 'var(--text-above-dark)',
+      'above-dark-hover': 'var(--text-above-dark-hover)',
+
+      // Colors text above error EX: text-above-light
+      'above-light': 'var(--text-above-light)',
+      'above-light-hover': 'var(--text-above-light-hover)',
+
       // Colors text above secondary EX: text-above-secondary
       'above-secondary': 'var(--text-above-secondary)',
       'above-secondary-hover': 'var(--text-above-secondary-hover)',
@@ -121,9 +145,9 @@ module.exports = {
       'above-success': 'var(--text-above-success)',
       'above-success-hover': 'var(--text-above-success-hover)',
 
-      // Colors text above alert EX: text-above-alert
-      'above-alert': 'var(--text-above-alert)',
-      'above-alert-hover': 'var(--text-above-alert-hover)',
+      // Colors text above warning EX: text-above-warning
+      'above-warning': 'var(--text-above-warning)',
+      'above-warning-hover': 'var(--text-above-warning-hover)',
 
       // Colors text above error EX: text-above-error
       'above-error': 'var(--text-above-error)',
@@ -135,6 +159,7 @@ module.exports = {
       DEFAULT: 'var(--border-color)',
       link: 'var(--link-color)',
       dark: 'var(--border-dark-color)',
+      disabled: 'var(--disabled-bg-color)',
     }),
     borderOpacity: (theme) => theme('opacity'),
     spacing: {

@@ -12,10 +12,14 @@ const config = {
   mode: 'production',
   entry: './src/index.tsx',
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
     library: 'hux',
+  },
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom',
   },
   optimization: {
     minimize: true,
@@ -23,7 +27,16 @@ const config = {
       new TerserPlugin({
         extractComments: false,
       }),
-      new CssMinimizerPlugin(),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
       new UglifyJsPlugin({
         uglifyOptions: {
           output: {
@@ -71,6 +84,11 @@ const config = {
         },
       },
       {
+        test: /\.(ts|js)x?$/i,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
@@ -105,7 +123,9 @@ const config = {
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
+    }),
   ],
 };
 

@@ -34,12 +34,17 @@ const config: Configuration = {
         },
       },
       {
+        test: /\.(ts|js)x?$/i,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.svg$/,
-        type: 'asset/inline',
+        use: 'raw-loader',
       },
       {
         test: /\.jpg|jpge|png|gif|tiff|mp4|webm$/,

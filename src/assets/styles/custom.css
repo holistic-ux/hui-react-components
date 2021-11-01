@@ -1,0 +1,16 @@
+/*
+* Loader animation
+*/
+
+@keyframes hui-loader-rotation {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+/*
+* END Loader animation
+*/

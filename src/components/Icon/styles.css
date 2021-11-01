@@ -1,0 +1,105 @@
+/*
+ * Base
+*/
+
+.hui-icon {
+  --current-color: '';
+  --current-color-hover: '';
+  color: var(--current-color);
+  display: block;
+}
+
+.hui-icon--hover {
+  transition-property: color, width, height;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.hui-icon--hover:hover {
+  color: var(--current-color-hover);
+}
+
+/* 
+* Kind
+*/
+
+/* Primary */
+.hui-icon--primary {
+  --current-color: var(--primary);
+  --current-color-hover: var(--primary-hover);
+}
+
+/* Secondary */
+.hui-icon--secondary {
+  --current-color: var(--secondary);
+  --current-color-hover: var(--secondary-hover);
+}
+
+/* Tertiary */
+.hui-icon--tertiary {
+  --current-color: var(--tertiary);
+  --current-color-hover: var(--tertiary-hover);
+}
+
+/* Success */
+.hui-icon--success {
+  --current-color: var(--success);
+  --current-color-hover: var(--success-hover);
+}
+
+/* Warning */
+.hui-icon--warning {
+  --current-color: var(--warning);
+  --current-color-hover: var(--warning-hover);
+}
+
+/* Error */
+.hui-icon--error {
+  --current-color: var(--error);
+  --current-color-hover: var(--error-hover);
+}
+
+/* Dark */
+.hui-icon--dark {
+  --current-color: var(--dark);
+  --current-color-hover: var(--dark-hover);
+}
+
+/* Light */
+.hui-icon--light {
+  --current-color: var(--light);
+  --current-color-hover: var(--light-hover);
+}
+
+/* Use no-kind if you want to use currentColor based on your color css context */
+.hui-icon--no-kind {
+}
+
+/* 
+* END Kind
+*/
+
+/* 
+* Size 
+*/
+
+.hui-icon--normal-size svg,
+.hui-icon--normal-size {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.hui-icon--small-size svg,
+.hui-icon--small-size {
+  width: 1rem;
+  height: 1rem;
+}
+.hui-icon--big-size svg,
+.hui-icon--big-size {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* 
+* END Size
+*/

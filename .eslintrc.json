@@ -4,7 +4,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "project": [
-      "./tsconfig.json"
+      "./tsconfig.dev.json"
     ]
   },
   "plugins": [
@@ -66,7 +66,9 @@
     ],
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
-    "jsx-a11y/media-has-caption": 0
+    "jsx-a11y/media-has-caption": 0,
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
   },
   "settings": {
     "react": {

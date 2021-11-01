@@ -1,0 +1,452 @@
+/* 
+* Base
+*/
+
+.hui-button {
+  --current-color: '';
+  --current-color-text: '';
+  --current-color-hover: '';
+  --current-color-text-hover: '';
+  --current-ghost-color: '';
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  position: relative;
+  transition-property: background-color, color, width, height;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+  @apply px-10 py-2 font-normal;
+}
+
+.hui-button:hover {
+  background-color: var(--current-color-hover);
+  color: var(--current-color-text-hover);
+}
+
+.hui-button:focus-visible {
+  transition-duration: 0;
+  outline: 2px dashed;
+  outline-offset: 2px;
+}
+
+.hui-button:active {
+  z-index: 1;
+}
+
+.hui-button__container {
+  @apply relative flex justify-center z-10 items-center;
+}
+.hui-button--normal-size .hui-button__container__child {
+  position: relative;
+  top: 1px;
+}
+
+/* 
+* END Base
+*/
+
+/* 
+* Only Icon
+*/
+
+.hui-button--only-icon {
+  @apply px-2;
+}
+
+.hui-button--only-icon.hui-button--outline-type,
+.hui-button--only-icon.hui-button--dashed-type {
+  --padding-x: calc(0.5rem - 2px);
+  --padding-y: calc(0.5rem - 2px);
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+}
+
+/* 
+* END Only Icon
+*/
+
+/* 
+* Icon Position
+*/
+
+.hui-button--right-icon .hui-button__container {
+  @apply flex-row-reverse -right-1;
+}
+.hui-button--left-icon .hui-button__container {
+  @apply flex-row -left-1;
+}
+.hui-button--loading.hui-button--right-icon .hui-button__container,
+.hui-button--only-icon.hui-button--right-icon .hui-button__container {
+  @apply right-0;
+}
+.hui-button--loading.hui-button--left-icon .hui-button__container,
+.hui-button--only-icon.hui-button--left-icon .hui-button__container {
+  @apply left-0;
+}
+.hui-button--right-icon .hui-button__container__child {
+  @apply mr-2;
+}
+.hui-button--left-icon .hui-button__container__child {
+  @apply ml-2;
+}
+/* 
+* END Icon Position
+*/
+
+/* 
+* Kind
+*/
+
+/* Primary */
+.hui-button--primary {
+  --current-color: var(--primary);
+  --current-color-text: var(--text-above-primary);
+  --current-ghost-color: var(--primary-opacity);
+  --current-color-hover: var(--primary-hover);
+  --current-color-text-hover: var(--text-above-primary-hover);
+}
+.hui-button--primary:focus-visible {
+  outline-color: var(--primary-dark);
+}
+
+/* Secondary */
+.hui-button--secondary {
+  --current-color: var(--secondary);
+  --current-color-text: var(--text-above-secondary);
+  --current-ghost-color: var(--secondary-opacity);
+  --current-color-hover: var(--secondary-hover);
+  --current-color-text-hover: var(--text-above-secondary-hover);
+}
+.hui-button--secondary:focus {
+  outline-color: var(--secondary-dark);
+}
+
+/* Tertiary */
+.hui-button--tertiary {
+  --current-color: var(--tertiary);
+  --current-color-text: var(--text-above-tertiary);
+  --current-ghost-color: var(--tertiary-opacity);
+  --current-color-hover: var(--tertiary-hover);
+  --current-color-text-hover: var(--text-above-tertiary-hover);
+}
+.hui-button--tertiary:focus {
+  outline-color: var(--tertiary-dark);
+}
+
+/* Success */
+.hui-button--success {
+  --current-color: var(--success);
+  --current-color-text: var(--text-above-success);
+  --current-ghost-color: var(--success-opacity);
+  --current-color-hover: var(--success-hover);
+  --current-color-text-hover: var(--text-above-success-hover);
+}
+.hui-button--success:focus {
+  outline-color: var(--success-dark);
+}
+
+/* Warning */
+.hui-button--warning {
+  --current-color: var(--warning);
+  --current-color-text: var(--text-above-warning);
+  --current-ghost-color: var(--warning-opacity);
+  --current-color-hover: var(--warning-hover);
+  --current-color-text-hover: var(--text-above-warning-hover);
+}
+.hui-button--warning:focus {
+  outline-color: var(--warning-dark);
+}
+
+/* Error */
+.hui-button--error {
+  --current-color: var(--error);
+  --current-color-text: var(--text-above-error);
+  --current-ghost-color: var(--error-opacity);
+  --current-color-hover: var(--error-hover);
+  --current-color-text-hover: var(--text-above-error-hover);
+}
+.hui-button--error:focus {
+  outline-color: var(--error-dark);
+}
+
+/* Dark */
+.hui-button--dark {
+  --current-color: var(--dark);
+  --current-color-text: var(--text-above-dark);
+  --current-ghost-color: var(--dark-opacity);
+  --current-color-hover: var(--dark-hover);
+  --current-color-text-hover: var(--text-above-dark-hover);
+}
+.hui-button--dark:focus {
+  outline-color: var(--dark-dark);
+}
+
+/* Light */
+.hui-button--light {
+  --current-color: var(--light);
+  --current-color-text: var(--text-above-light);
+  --current-ghost-color: var(--light-opacity);
+  --current-color-hover: var(--light-hover);
+  --current-color-text-hover: var(--text-above-light-hover);
+}
+.hui-button--light:focus {
+  outline-color: var(--light-dark);
+}
+
+/* 
+* END Kind
+*/
+
+/* 
+* Disabled
+*/
+
+.hui-button.hui-button--disabled {
+  cursor: not-allowed;
+  @apply bg-disabled text-disabled;
+}
+.hui-button.hui-button--disabled:hover {
+  @apply bg-disabled text-disabled;
+}
+.hui-button--disabled:focus {
+  outline-color: var(--disabled-bg-color);
+}
+
+/* 
+* END Disabled
+*/
+
+/* 
+* Shape 
+*/
+
+.hui-button--default-shape,
+.hui-button--default-shape::before {
+  @apply rounded-full;
+}
+.hui-button--squared-shape,
+.hui-button--squared-shape::before {
+  @apply rounded-none;
+}
+.hui-button--rounded-shape,
+.hui-button--rounded-shape::before {
+  @apply rounded-full;
+}
+
+/* 
+* END Shape
+*/
+
+/* 
+* Size 
+*/
+
+.hui-button--normal-size {
+  @apply text-base;
+}
+.hui-button--small-size {
+  @apply text-xs;
+}
+.hui-button--big-size {
+  @apply text-xl;
+}
+
+/* 
+* END Size
+*/
+
+/* 
+* Block
+*/
+
+.hui-button--block {
+  @apply w-full;
+}
+
+/* 
+* END Block
+*/
+
+/* 
+* Type
+*/
+
+.hui-button--undecorated-type::before,
+.hui-button--ghost-type::before,
+.hui-button--outline-type::before,
+.hui-button--dashed-type::before {
+  background-color: var(--current-color);
+  content: '';
+  display: block;
+  transition: opacity, transform;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.hui-button--undecorated-type:active::before,
+.hui-button--ghost-type:active::before,
+.hui-button--outline-type:active::before,
+.hui-button--dashed-type:active::before {
+  transition: none;
+  opacity: 0.3;
+}
+.hui-button--undecorated-type:active::before,
+.hui-button--ghost-type:active::before {
+  transform: scaleX(1.05) scaleY(1.2);
+}
+.hui-button--outline-type:active::before,
+.hui-button--dashed-type:active::before {
+  transform: scaleX(1.07) scaleY(1.32);
+}
+
+.hui-button--only-icon.hui-button--undecorated-type:active::before,
+.hui-button--only-icon.hui-button--ghost-type:active::before {
+  transform: scale(1.2);
+}
+.hui-button--only-icon.hui-button--outline-type:active::before,
+.hui-button--only-icon.hui-button--dashed-type:active::before {
+  transform: scale(1.32);
+}
+
+.hui-button--decorated-type::before,
+.hui-button--ghost-decorated-type::before {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--current-color);
+  transform: scaleX(1.065) scaleY(1.27);
+  position: absolute;
+  transition-property: border-color, transform;
+  transition-duration: var(--transition-duration);
+  transition-delay: var(--transition-delay);
+  transition-timing-function: var(--transition-timing-function);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.hui-button--only-icon.hui-button--decorated-type::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type::before {
+  transform: scale(1.27);
+}
+.hui-button--decorated-type:hover::before,
+.hui-button--ghost-decorated-type:hover::before {
+  transform: scaleX(1.045) scaleY(1.2);
+  border-color: var(--current-color-hover);
+}
+.hui-button--only-icon.hui-button--decorated-type:hover::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type:hover::before {
+  transform: scale(1.2);
+}
+.hui-button--decorated-type:active::before,
+.hui-button--ghost-decorated-type:active::before {
+  transform: scaleX(1.065) scaleY(1.27);
+  transition-duration: 0s;
+}
+.hui-button--only-icon.hui-button--decorated-type:active::before,
+.hui-button--only-icon.hui-button--ghost-decorated-type:active::before {
+  transform: scale(1.27);
+}
+.hui-button--ghost-type,
+.hui-button--ghost-decorated-type {
+  background-color: var(--current-ghost-color);
+  color: var(--current-color-hover);
+}
+.hui-button--ghost-type:hover,
+.hui-button--ghost-decorated-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+}
+.hui-button--loading.hui-button--ghost-type:hover,
+.hui-button--loading.hui-button--ghost-decorated-type:hover {
+  background-color: var(--current-ghost-color);
+}
+.hui-button--outline-type {
+  background-color: transparent;
+  color: var(--current-color);
+  border-color: var(--current-color);
+  @apply border-2;
+}
+.hui-button--dashed-type {
+  background-color: transparent;
+  color: var(--current-color);
+  border-color: var(--current-color);
+
+  @apply border-2 border-dashed;
+}
+
+.hui-button--loading.hui-button--outline-type:hover,
+.hui-button--loading.hui-button--dashed-type:hover {
+  background-color: transparent;
+}
+
+:not(.hui-button--only-icon).hui-button--outline-type,
+:not(.hui-button--only-icon).hui-button--dashed-type {
+  --padding-x: calc(2.5rem - 2px);
+  --padding-y: calc(0.5rem - 2px);
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+}
+.hui-button--outline-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  border-color: var(--current-color);
+}
+.hui-button--dashed-type:hover {
+  background-color: var(--current-color);
+  color: var(--current-color-text);
+  border-color: var(--current-color);
+}
+
+.hui-button--disabled.hui-button--undecorated-type::before,
+.hui-button--disabled.hui-button--decorated-type::before,
+.hui-button--disabled.hui-button--ghost-type::before,
+.hui-button--disabled.hui-button--ghost-decorated-type::before,
+.hui-button--disabled.hui-button--dashed-type::before,
+.hui-button--disabled.hui-button--outline-type::before,
+.hui-button--block.hui-button--undecorated-type::before,
+.hui-button--block.hui-button--decorated-type::before,
+.hui-button--block.hui-button--ghost-type::before,
+.hui-button--block.hui-button--ghost-decorated-type::before,
+.hui-button--block.hui-button--dashed-type::before,
+.hui-button--block.hui-button--outline-type::before {
+  display: none;
+}
+.hui-button--disabled.hui-button--dashed-type,
+.hui-button--disabled.hui-button--outline-type {
+  @apply border-disabled;
+}
+
+/* 
+* END Type
+*/
+
+/* 
+* Loading
+*/
+
+.hui-button__loader-centered {
+  position: absolute;
+}
+.hui-button--loading .hui-button__container__child,
+.hui-button--loading .hui-button__container__icon {
+  transition: none;
+  opacity: 0;
+}
+
+/* 
+* END Loading
+*/

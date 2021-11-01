@@ -1,29 +1,29 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "skipDefaultLibCheck": true,
     "lib": [
       "dom",
-      "dom.iterable",
-      "esnext"
+      "es2015",
+      "es2017"
     ],
-    "sourceMap": true,
-    "module": "commonjs",
-    "target": "es5",
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "types": []
   },
-  "include": [
-    "src"
+  "typeRoots": [
+    "./src/@types"
+  ],
+  "files": [
+    "src/index.tsx",
+    "src/@types/index.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "./node_modules",
-    "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
+    "**/*.spec.ts",
+    "**/__tests__/*/**"
   ],
-  "compileOnSave": false,
 }

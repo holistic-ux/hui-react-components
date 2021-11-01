@@ -1,3 +1,9 @@
 {
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#491756",
+    "titleBar.activeBackground": "#662078",
+    "titleBar.activeForeground": "#FDFBFE"
+  },
+  "css.lint.unknownAtRules": "ignore"
 }
